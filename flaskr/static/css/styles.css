@@ -58,6 +58,8 @@ main {
     align-items: center;
 }
 
+/* Below is main CSS for index.html/homepage */
+
 main .wrapper {
     display: flex;
     flex-direction: column;
@@ -94,6 +96,35 @@ main .news div {
     background: #;
     border: 3px solid #9ddfd3;
 }
+
+/* Above is main CSS for index.html/homepage */
+
+/* Below is main CSS for registration.html */
+
+main .registration {
+    height: 60vh;
+    width: 90%;
+    display: flex;
+}
+
+main .blue-stripe {
+    height: 100%;
+    width: 5%;
+    background: #9ddfd3;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.form {
+    height: 100%;
+    width: 90%;
+    background: #;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Above is main CSS for registration.html */
 
 footer {
     height: 10vh;
