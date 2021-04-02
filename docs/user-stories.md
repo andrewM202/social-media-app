@@ -1,6 +1,6 @@
 # Hello! User stories in here
 
-Total Points: 33
+Total Points: 38
 ----------------
 Week 1
 Completed Points: 5 
