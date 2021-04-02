@@ -2,10 +2,11 @@
 
 from flask import Blueprint, render_template
 
-from . import db
+from models import db
 
 bp = Blueprint("login", __name__)
 
+# the @bp.route decorator configures the URL needed before the view (the funct    ion hi is called the view) is ran. This route means that the default page when you     open localhost in the browser will run this
 @bp.route("/")
 def index():
     """ Login page for social media app """
