@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+<header>
+    <div class="black-bar"></div>
+    <div class="nav-bar">
+        <div><p>Login</p></div>
+        <div><p>Register</p></div>
+    </div>
+    <h1>Social Media App</h1>
+</header>
+<main>
+    <div class="wrapper">
+        <h3>Taking Social Media to a Whole New Level!</h3>
+        <div class="image"></div>
+    </div>
+    <div class="news">
+        <div></div>
+        <div></div>
+    </div>
+</main>
+<footer>
+
+</footer>
+{% endblock %}
+
