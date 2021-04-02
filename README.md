@@ -47,4 +47,18 @@ NOTE: postgres/pgadmin4 must be downloaded and running
     $ flask run
 ```
 
+# Prettier and Autopep8
+Prettier and autopep8 are installed as auto-linters for this project. Autopep8 is for auto-linting Python files, and Prettier is for formatting HTML/CSS/JavaSript files. Here is the syntax for each:
+
+- Prettier
+```sh
+    $ npx prettier --write file_name
+```
+
+- Autopep-8
+```sh
+    $ autopep8 -i file_name (this command fixes indendation errors)
+    $ autopep8 --aggressive --aggressive file_name (this command fixes formatting issues)
+```
+
 # Screenshots of Website Below
