@@ -13,6 +13,8 @@ def create_app(config):
     # Set the configurations for our flask application to the ones we specified in configs.py
     app.config.from_object('config.DevelopmentConfig')
 
+    db.init_app(app)
+
     # Register Routes
     import homepage
     app.register_blueprint(homepage.bp)
