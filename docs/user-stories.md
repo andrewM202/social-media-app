@@ -15,6 +15,7 @@ Completed Points: 5
 - [ ] Points: 3 | Create HTML and CSS files for registration page
 - [ ] Points: 3 | Create HTML and CSS files/interface for users to post messages
 - [ ] Points: 1 | Figure out in greater detail how the site will work. For instance, will there be DM features? Will users have chat rooms they talk in?
+- [ ] Points: 5 | Use pytest to test whether the database is functioning correctly
 - [ ] Points: 1 | Delegate roles for the project. Besides standard developer, roles include: 
     - Project Manager
     - DevOps
