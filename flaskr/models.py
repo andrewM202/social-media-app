@@ -1,7 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 
+# create our SQLAlchemy db object that will be used to interact with our databa    se
 db = SQLAlchemy()
 
+# Below two tables are created, userinfo and userposts. These are the same tables that will show up in postgres once migrations are completed
 class userInformation(db.Model):
     __tablename__ = 'userinfo'
 
