@@ -12,13 +12,14 @@ def create_app(config):
     app = Flask(__name__)
     # Set the configurations for our flask application to the ones we specified in configs.py
     app.config.from_object('config.DevelopmentConfig')
-    # the @app.route decorator configures the URL needed before the view (the function hi is called the view) is ran. This route means that the default page when you open localhost in the browser will run this 
-    #@app.route('/')
-    #def hi():
-        # render_template is used to open a specific HTML page for a route. It can also be used to send data to a form
-        #return render_template('index.html')
 
     # Register Routes
+    import homepage
+    app.register_blueprint(homepage.bp)
+
+    import register
+    app.register_blueprint(register.bp)
+
     import login
     app.register_blueprint(login.bp)
     

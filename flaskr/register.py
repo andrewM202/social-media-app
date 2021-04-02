@@ -2,10 +2,9 @@ from flask import Blueprint, render_template
 
 from models import db
 
-bp = Blueprint("login", __name__)
+bp = Blueprint("register", __name__)
 
-@bp.route("/login")
+@bp.route("/register")
 def register():
     """ Registration route for social media app """
-    return render_template("login.html")
-
+    return render_template("register.html")
