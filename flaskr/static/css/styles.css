@@ -16,7 +16,7 @@ header h1 {
     width: 100vw;
     background: #9ddfd3;
     text-align: center;
-    margin-top: 3vh;
+    margin-top: 7vh;
 }
 
 header .black-bar {
@@ -35,6 +35,10 @@ header .nav-bar {
     justify-content: space-around;
 }
 
+header .nav-bar a {
+    text-decoration: none;
+}
+
 header .nav-bar div {
     height: 100%;
     width: 10vw;
@@ -46,7 +50,6 @@ header .nav-bar div {
     border-left: 3px solid black;
     cursor: pointer;
 }
-
 
 main {
     height: auto;

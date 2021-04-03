@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect
 
 from models import db, userInformation
 import psycopg2
@@ -24,5 +24,5 @@ def register_account():
         new_login = userInformation(username=username, password=password)
         db.session.add(new_login)
         db.session.commit()
-
-        return render_template("register.html")
+    
+        return redirect('register')

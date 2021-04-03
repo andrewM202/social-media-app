@@ -15,7 +15,7 @@ def create_app(config):
 
     db.init_app(app)
 
-    # Register Routes
+    # Register Routes / import blueprints
     import homepage
     app.register_blueprint(homepage.bp)
 
