@@ -118,13 +118,42 @@ main .blue-stripe {
     border-right: 1px solid black;
 }
 
-form {
+.wrap {
+    width: 100%;
     height: 100%;
-    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.register-info {
+    height: 30%;
+    width: 100%;
     background: #;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.register-info h2 {
+    padding-top: 3%;
+}
+
+form {
+    height: 70%;
+    width: 100%;
+    background: #;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form input {
+    text-align: center;
+    margin-top: 5%;
+    width: 30%;
+    height: 10%; 
 }
 
 /* Above is main CSS for registration.html */

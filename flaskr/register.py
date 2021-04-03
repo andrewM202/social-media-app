@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect
 
 from models import db, userInformation
+from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 
 # create a connection to the postgreSQL database
@@ -18,11 +19,20 @@ def register():
 def register_account():
     """ Register form functionality """
     if request.method == "POST":
-        username = request.form['user-name']
-        password = request.form['user-password']
+        try:
+            username = request.form['user-name']
+            password = request.form['user-password']
 
-        new_login = userInformation(username=username, password=password)
-        db.session.add(new_login)
-        db.session.commit()
-    
-        return redirect('register')
+            new_login = userInformation(username=username, password=password)
+            db.session.add(new_login)
+            db.session.commit()
+        
+            success = "Registration successful!"
+            return render_template("register.html", success=success) 
+
+        except:
+            error = "Sorry, that username is already taken."
+            return render_template("register.html", error=error)
+
+
+

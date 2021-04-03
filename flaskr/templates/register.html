@@ -14,15 +14,26 @@
     <h1>Social Media App</h1>
 </header>
 <main>
-    <div class="registration">
+    <section class="registration">
         <div class="blue-stripe"></div>
-        <form action=/send-username-password method="POST">
-            <input type="text" placeholder="Please enter a username." name="user-name">
-            <input type="text" placeholder="Please enter a password." name="user-password">
-            <input type="submit" value="Register">
-        </form>
+        <div class="wrap">
+            <div class="register-info">
+                <h2>Register in the form below!</h2>
+                {% if error %}
+                    <h2>{{ error }}</h2>
+                {% endif %}
+                {% if success %}
+                    <h2>{{ success }}</h2>
+                {% endif %}
+            </div>
+            <form action=/send-username-password method="POST">
+                <input type="text" placeholder="Please enter a username." name="user-name">
+                <input type="text" placeholder="Please enter a password." name="user-password">
+                <input type="submit" value="Register">
+            </form>
+        </div>
         <div class="blue-stripe"></div>
-    </div>
+    </section>
 </main>
 <footer>
 
