@@ -21,10 +21,10 @@ NOTE: postgres/pgadmin4 must be downloaded and running
     $ python3 -r requirements.txt
 ```
 
-3. Run the following exports
+3. Run the following exports in the flaskr folder
 ```sh
     $ export DATABASE_URL="postgresql:///socialmediaapp"
-    $ export FLASK_APP=social-media-app
+    $ export FLASK_APP=app.py
     $ export FLASK_ENV=development
     $ export APP_SETTINGS="config.DevelopmentConfig"
 ```
