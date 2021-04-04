@@ -7,7 +7,7 @@ db = SQLAlchemy()
 login = LoginManager()
 
 # Below two tables are created, userinfo and userposts. These are the same tables that will show up in postgres once migrations are completed
-class userInformation(db.Model):
+class userInformation(db.Model, UserMixin):
     __tablename__ = 'userinfo'
 
     id = db.Column(db.BigInteger, primary_key=True)
@@ -31,7 +31,7 @@ class userInformation(db.Model):
 
 @login.user_loader
 def load_user(id):
-    return UserModel.query.get(int(id))
+    return userInformation.query.get(int(id))
 
 
 class userPostings(db.Model):
