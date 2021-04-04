@@ -5,6 +5,7 @@ from flask import Flask, render_template
 from flask_migrate import Migrate
 # SQLAlchemy is used to make our tables 
 from flask_sqlalchemy import SQLAlchemy
+from models import login
 
 # The function below is called the application factory function. It returns "app", our flask app, which web hosting services like Heroku can then used to deploy our app. 
 def create_app(config):
@@ -14,6 +15,8 @@ def create_app(config):
     app.config.from_object('config.DevelopmentConfig')
 
     db.init_app(app)
+    login.init_app(app)
+    login.login_view = 'login'
 
     # Register Routes / import blueprints
     import homepage
@@ -22,8 +25,8 @@ def create_app(config):
     import register
     app.register_blueprint(register.bp)
 
-    import login
-    app.register_blueprint(login.bp)
+    import loginpage
+    app.register_blueprint(loginpage.bp)
     
     # return our flask application object
     return app

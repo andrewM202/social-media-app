@@ -4,6 +4,7 @@ from flask_login import UserMixin, LoginManager
 
 # create our SQLAlchemy db object that will be used to interact with our databa    se
 db = SQLAlchemy()
+login = LoginManager()
 
 # Below two tables are created, userinfo and userposts. These are the same tables that will show up in postgres once migrations are completed
 class userInformation(db.Model):

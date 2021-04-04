@@ -2,7 +2,7 @@ from flask import Blueprint, render_template
 
 from models import db
 
-bp = Blueprint("login", __name__)
+bp = Blueprint("loginpage", __name__)
 
 @bp.route("/login")
 def register():
