@@ -17,7 +17,8 @@ def register():
         user = userInformation.query.filter_by(email = email).first()
         if user is not None and user.check_password(request.form['user-password']):
             login_user(user)
-            return 'You have logged in!'
+            loggedin = "You have logged in!"
+            return render_template("login.html", loggedin=loggedin)
 
     return render_template("login.html")
 

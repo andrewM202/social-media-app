@@ -19,7 +19,9 @@
         <div class="blue-stripe"></div>
         <div class="wrap">
             <div class="login-info">
-                <h2>Login below!</h2>
+                {% if not loggedin %}
+                    <h2>Login below!</h2>
+                {% endif %}
                 {% if loggedin %}
                     <h2>{{ loggedin }}</h2>
                 {% endif %}
