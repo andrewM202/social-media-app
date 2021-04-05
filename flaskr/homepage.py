@@ -1,8 +1,6 @@
 # Blueprints are essentially decentralized routes. Instead of keeping all the routes in a big jumble in app.py, it is more convenient for larger projects to separate the routes into "blueprints", which app.py will then import.
-
 from flask import Blueprint, render_template
 import psycopg2
-
 from models import db
 
 # create a connection to the postgreSQL database

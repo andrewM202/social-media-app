@@ -1,11 +1,10 @@
-from models import db, userInformation, userPostings
+from models import db, userInformation, userPostings, login
 from config import Config
 from flask import Flask, render_template
 # Flask migrate is used to connect our flask tables to our postgres database
 from flask_migrate import Migrate
 # SQLAlchemy is used to make our tables 
 from flask_sqlalchemy import SQLAlchemy
-from models import login
 
 # The function below is called the application factory function. It returns "app", our flask app, which web hosting services like Heroku can then used to deploy our app. 
 def create_app(config):
