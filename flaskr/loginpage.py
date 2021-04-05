@@ -6,7 +6,7 @@ from models import db, userInformation, login
 bp = Blueprint("loginpage", __name__)
 
 @bp.route("/login", methods = ['POST', 'GET'])
-def register():
+def loginuser():
     """ Login route for social media app """
     if current_user.is_authenticated:
         loggedin = "You are already logged in!"
@@ -17,7 +17,8 @@ def register():
         user = userInformation.query.filter_by(email = email).first()
         if user is not None and user.check_password(request.form['user-password']):
             login_user(user)
-            return 'You have logged in!'
+            loggedin = "You have logged in!"
+            return render_template("login.html", loggedin=loggedin)
 
     return render_template("login.html")
 

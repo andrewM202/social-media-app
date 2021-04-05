@@ -19,7 +19,11 @@
         <div class="blue-stripe"></div>
         <div class="wrap">
             <div class="register-info">
-                <h2>Register in the form below!</h2>
+                {% if not error %}
+                {% if not success %}
+                    <h2>Register in the form below!</h2>
+                {% endif %}
+                {% endif %}
                 {% if error %}
                     <h2>{{ error }}</h2>
                 {% endif %}
