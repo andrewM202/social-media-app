@@ -26,7 +26,7 @@ header .black-bar {
     opacity: 85%;
 }
 
-header .nav-bar {
+header nav {
     height: 7vh;
     width: 100vw;
     background: #9ddfd3;
@@ -35,11 +35,11 @@ header .nav-bar {
     justify-content: space-around;
 }
 
-header .nav-bar a {
+header nav a {
     text-decoration: none;
 }
 
-header .nav-bar div {
+header nav div {
     height: 100%;
     width: 10vw;
     display: flex;
@@ -104,7 +104,7 @@ main .news div {
 
 /* Below is main CSS for registration.html */
 
-main .registration {
+main .registration, main .login {
     height: 60vh;
     width: 90%;
     display: flex;
@@ -125,7 +125,8 @@ main .blue-stripe {
     flex-direction: column;
 }
 
-.register-info {
+.register-info,
+.login-info {
     height: 30%;
     width: 100%;
     background: #;
@@ -135,8 +136,9 @@ main .blue-stripe {
     align-items: center;
 }
 
-.register-info h2 {
-    padding-top: 3%;
+.register-info h2,
+.login-info h2 {
+    padding-top: 2%;
 }
 
 form {
@@ -151,7 +153,7 @@ form {
 
 form input {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3%;
     width: 30%;
     height: 10%; 
 }
@@ -164,3 +166,4 @@ footer {
     background: #9ddfd3;
     border-top: 1px solid black;
 }
+
