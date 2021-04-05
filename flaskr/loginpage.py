@@ -1,5 +1,5 @@
-from flask import Blueprint, request, Flask, render_template
-from flask_login import current_user, login_user
+from flask import Blueprint, request, Flask, render_template, redirect
+from flask_login import current_user, login_user, logout_user
 
 from models import db, userInformation, login
 
@@ -7,9 +7,10 @@ bp = Blueprint("loginpage", __name__)
 
 @bp.route("/login", methods = ['POST', 'GET'])
 def register():
-    """ Registration route for social media app """
+    """ Login route for social media app """
     if current_user.is_authenticated:
-        return 'you are already authenticated'
+        loggedin = "You are already logged in!"
+        return render_template("login.html", loggedin=loggedin)
 
     if request.method == "POST":
         email = request.form['user-email']
@@ -20,3 +21,9 @@ def register():
 
     return render_template("login.html")
 
+
+@bp.route("/logout", methods = ['POST', 'GET'])
+def logout():
+    """ Route for logging out the user """
+    logout_user()
+    return redirect("/")
