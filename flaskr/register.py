@@ -20,8 +20,9 @@ def register():
 def register_account():
     """ Register form functionality """
 
-    if current_user.is_authenticated:
-        return 'It worked! you are authenticated'
+    # run commented out command below if the user is authenticated
+    #if current_user.is_authenticated:
+        #return 'It worked! you are authenticated'
 
     if request.method == "POST":
         username = request.form['user-name']

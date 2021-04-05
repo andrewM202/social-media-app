@@ -7,10 +7,11 @@
 {% block body %}
 <header>
     <div class="black-bar"></div>
-    <div class="nav-bar">
-        <a href=login><div><p>Login</p></div></a>
+    <nav>
+        <a href=/login><div><p>Login</p></div></a>
         <a href=/><div><p>Homepage</p></div></a>
-    </div>
+        <a href=/logout><div><p>Logout</p></div></a>
+    </nav>
     <h1>Social Media App</h1>
 </header>
 <main>
@@ -28,8 +29,8 @@
             </div>
             <form action=/send-user-info method="POST">
                 <input type="text" placeholder="Please enter a username." name="user-name">
-                <input type="text" placeholder="Please enter a password." name="user-password">
-                <input type="text" placeholder="Please enter an email." name="user-email">
+                <input type="password" placeholder="Please enter a password." name="user-password">
+                <input type="email" placeholder="Please enter an email." name="user-email">
                 <input type="submit" value="Register">
             </form>
         </div>
