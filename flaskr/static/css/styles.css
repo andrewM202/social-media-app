@@ -160,10 +160,47 @@ form input {
 
 /* Above is main CSS for registration.html */
 
+/* Below is footer CSS */
+
 footer {
+    height: 40vh;
+    width: 100vw;
+}
+
+footer .light-blue-panel {
     height: 10vh;
     width: 100vw;
     background: #9ddfd3;
     border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
+footer .contact-information {
+    height: 30vh;
+    width: 100vw;
+    background: #1b2021;
+    opacity: 95%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+footer .contact-information div {
+    height: auto;
+    width: auto;
+    text-align: center;
+}
+
+footer .contact-information div p:first-child {
+    text-decoration: underline;
+    font-size: 1.3em;
+}
+
+footer .contact-information div p {
+    padding: 5px;
+    font-size: 1.2em;
+    opacity: 90%;
+}
+
+/* Above is footer CSS */
