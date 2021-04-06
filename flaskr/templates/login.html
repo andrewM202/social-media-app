@@ -8,9 +8,17 @@
 <header>
     <div class="black-bar"></div>
     <nav>
-        <a href=register><div><p>Registration</p></div></a>
+        <!-- Only show register button if user is not logged in -->
+        {% if not loginmessage %}
+            <a href=register><div><p>Registration</p></div></a>
+        {% endif %}
+
         <a href=/><div><p>Homepage</p></div></a>
-        <a href=/logout><div><p>Logout</p></div></a>
+
+        <!-- Only show logout if the user is logged in. If a login message is sent, that means the user is logged in -->
+        {% if loginmessage %}
+            <a href=/logout><div><p>Logout</p></div></a>
+        {% endif %}
     </nav>
     <h1>Social Media App</h1>
 </header>
@@ -19,11 +27,11 @@
         <div class="blue-stripe"></div>
         <div class="wrap">
             <div class="login-info">
-                {% if not loggedin %}
+                {% if not loginmessage %}
                     <h2>Login below!</h2>
                 {% endif %}
-                {% if loggedin %}
-                    <h2>{{ loggedin }}</h2>
+                {% if loginmessage %}
+                    <h2>{{ loginmessage }}</h2>
                 {% endif %}
             </div>
             <form action=/login method="POST">

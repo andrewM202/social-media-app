@@ -8,9 +8,20 @@
 <header>
     <div class="black-bar"></div>
     <nav>
-        <a href=/login><div><p>Login</p></div></a>
-        <a href=/register><div><p>Register</p></div></a>
-        <a href=/logout><div><p>Logout</p></div></a>
+        <!-- If not logged in, show the login button -->
+        {% if not loggedin %}
+            <a href=/login><div><p>Login</p></div></a>
+        {% endif %}
+
+        <!-- If the user is logged in, don't show the register button -->
+        {% if not loggedin %}
+            <a href=/register><div><p>Register</p></div></a>
+        {% endif %}
+
+        <!-- If logged in, show the logout button -->
+        {% if loggedin %}
+            <a href=/logout><div><p>Logout</p></div></a>
+        {% endif %}
     </nav>
     <h1>Social Media App</h1>
 </header>

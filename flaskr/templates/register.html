@@ -8,9 +8,17 @@
 <header>
     <div class="black-bar"></div>
     <nav>
-        <a href=/login><div><p>Login</p></div></a>
+        <!-- If the user is not logged in, then display the login buttton -->
+        {% if not loggedin %}
+            <a href=/login><div><p>Login</p></div></a>
+        {% endif %}
+
         <a href=/><div><p>Homepage</p></div></a>
-        <a href=/logout><div><p>Logout</p></div></a>
+
+        <!-- If the user is logged in, display the logout button -->
+        {% if loggedin %}
+            <a href=/logout><div><p>Logout</p></div></a>
+        {% endif %}
     </nav>
     <h1>Social Media App</h1>
 </header>
@@ -20,9 +28,11 @@
         <div class="wrap">
             <div class="register-info">
                 <h2>Register in the form below!</h2>
+                <!-- If there is an error in registration, show it -->
                 {% if error %}
                     <h2>{{ error }}</h2>
                 {% endif %}
+                <!-- If the registration worked, show it -->
                 {% if success %}
                     <h2>{{ success }}</h2>
                 {% endif %}
