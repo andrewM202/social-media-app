@@ -30,9 +30,6 @@
                 {% if not loginmessage %}
                     <h2>Login below!</h2>
                 {% endif %}
-                {% if loginmessage %}
-                    <h2>{{ loginmessage }}</h2>
-                {% endif %}
             </div>
             <form action=/login method="POST">
                 <input type="password" placeholder="Please enter a password." name="user-password">

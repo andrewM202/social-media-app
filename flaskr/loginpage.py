@@ -14,8 +14,10 @@ def register():
         user = userInformation.query.filter_by(email = email).first()
         if user is not None and user.check_password(request.form['user-password']):
             login_user(user)
+            # Send in the login message and loggedin variable so index.html knows not to display certain nav links if user is logged in
             loginmessage = "You have logged in!"
-            return render_template("login.html", loginmessage=loginmessage)
+            loggedin = True
+            return render_template("index.html", loginmessage=loginmessage, loggedin=loggedin)
 
     return render_template("login.html")
 

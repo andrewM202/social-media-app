@@ -24,6 +24,10 @@
         {% endif %}
     </nav>
     <h1>Social Media App</h1>
+    <!-- Display the login message if just logged in -->
+    {% if loginmessage %}
+        <h3>{{ loginmessage }}</h3>
+    {% endif %}
 </header>
 <main>
     <div class="wrapper">
