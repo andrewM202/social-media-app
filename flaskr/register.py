@@ -17,8 +17,7 @@ def register():
     loggedin = False
     # If the user is logged in, don't show the login button
     if current_user.is_authenticated:
-        loggedin = True
-        return render_template("register.html", loggedin=loggedin)
+        return redirect("/")
 
     # If the user is not logged in, don't show the logout button
     return render_template("register.html", loggedin=loggedin)
