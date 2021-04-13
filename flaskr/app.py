@@ -1,5 +1,5 @@
 from models import db, userInformation, userPostings, login
-from config import Config
+import config
 from flask import Flask, render_template
 # Flask migrate is used to connect our flask tables to our postgres database
 from flask_migrate import Migrate
@@ -32,5 +32,5 @@ def create_app(config):
 
 # run our application with debug mode on
 if __name__ == "__main__":
-    app = create_app()
+    app = create_app(config)
     app.run(debug=True)
