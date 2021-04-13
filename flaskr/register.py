@@ -5,8 +5,6 @@ import psycopg2
 from flask_login import current_user
 
 # create a connection to the postgreSQL database
-con = psycopg2.connect(database="socialmediaapp", user="socialmediaapp_user", password="", host="localhost")
-cursor = con.cursor()
 
 bp = Blueprint("register", __name__)
 
