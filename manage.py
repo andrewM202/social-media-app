@@ -10,6 +10,7 @@ from models import db
 # import the default config we setup in configs.py
 from config import Config
 
+# temporarily remove this app = create_app(Config)
 app = create_app(Config)
 
 app.config.from_object(os.environ['APP_SETTINGS'])
