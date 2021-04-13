@@ -32,4 +32,5 @@ def create_app(config):
 
 # run our application with debug mode on
 if __name__ == "__main__":
+    app = create_app()
     app.run(debug=True)
