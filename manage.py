@@ -11,7 +11,7 @@ from models import db
 from config import Config
 
 # temporarily remove this app = create_app(Config)
-app = create_app(Config)
+app = create_app()
 
 app.config.from_object(os.environ['APP_SETTINGS'])
 
