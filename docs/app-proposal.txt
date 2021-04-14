@@ -1,0 +1,6 @@
+PROPOSAL:
+We're creating a proto-social-media app.
+Users will be able to register an account with an email and password, which they can use to log into said account.
+
+Once logged in, users can write text posts and then publish them to the website, where they'll appear with other posts on a webpage.
+The accounts and associated information will be stored by way of an SQL-controlled database. The application will use a combination of JavaScript, SQL, HTML, and CSS programming languages to connect front and back ends.
