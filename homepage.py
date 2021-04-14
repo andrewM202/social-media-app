@@ -5,8 +5,6 @@ import psycopg2
 from models import db, login
 
 # create a connection to the postgreSQL database
-con = psycopg2.connect(database="socialmediaapp", user="socialmediaapp_user", password="", host="localhost")
-cursor = con.cursor()
 
 bp = Blueprint("homepage", __name__)
 

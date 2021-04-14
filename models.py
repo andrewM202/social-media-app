@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, LoginManager
+from sqlalchemy import create_engine
 
 # create our SQLAlchemy db object that will be used to interact with our databa    se
 db = SQLAlchemy()

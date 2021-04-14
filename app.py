@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 # The function below is called the application factory function. It returns "app", our flask app, which web hosting services like Heroku can then used to deploy our app. 
-def create_app(config):
+def create_app():
     # Create our flask application object
     app = Flask(__name__)
     # Set the configurations for our flask application to the ones we specified in configs.py
@@ -29,6 +29,8 @@ def create_app(config):
     
     # return our flask application object
     return app
+
+my_app = create_app()
 
 # run our application with debug mode on
 if __name__ == "__main__":
