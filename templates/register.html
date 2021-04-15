@@ -8,25 +8,26 @@
 <header>
     <div class="black-bar"></div>
     <nav>
-        <!-- If the user is not logged in, then display the login buttton -->
+        <!-- If the user is not logged in, then display the login button -->
         {% if not loggedin %}
-            <a href=/login><div><p>Login</p></div></a>
+            <a href=/login>Login</a>
         {% endif %}
 
-        <a href=/><div><p>Homepage</p></div></a>
+        <a href=/>Homepage</a>
 
         <!-- If the user is logged in, display the logout button -->
         {% if loggedin %}
             <a href=/logout><div><p>Logout</p></div></a>
         {% endif %}
     </nav>
-    <h1>Social Media App</h1>
+    <h1>Register today!</h1>
 </header>
 <main>
     <section class="registration">
         <div class="blue-stripe"></div>
         <div class="wrap">
             <div class="register-info">
+                Enter your information below.
                 {% if error %}
                     <h2>{{ error }}</h2>
                 {% endif %}
