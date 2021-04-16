@@ -5,7 +5,7 @@
 }
 
 header {
-    height: 30vh;
+    height: 35vh;
     width: 100vw;
     background: #9ddfd3;
     border-bottom: 1px solid black;
@@ -27,7 +27,7 @@ header h3 {
 }
 
 header .black-bar {
-    height: 5vh;
+    height: 4vh;
     width: 100vw;
     background: #1b2021;
     opacity: 85%;
@@ -109,6 +109,150 @@ main .news div {
 
 /* Above is main CSS for index.html/homepage */
 
+/* Below is responsive design for index.html/homepage */
+
+@media screen and (max-width: 300px) {
+  div {
+    padding-bottom: 15px;
+  }
+  nav div p{
+    padding-top: 15px;
+  }
+  header h1 {
+    font-size: 6vw;
+  }
+  .wrapper {
+    font-size: .6em;
+  }
+  :link {
+    font-size: .7em;
+  }
+  main .image {
+    margin-top: 8px;
+  }
+  main .news {
+    flex-direction: column;
+    display: flex;
+    margin-top: 10px;
+    height: 250px;
+    margin-bottom: 10px;
+  }
+  .contact-information {
+    padding-bottom: 80px;
+    padding-top: 90px;
+  }
+  footer .contact-information {
+    font-size: .6em;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  div {
+    padding-bottom: 15px;
+  }
+  nav div p{
+    padding-top: 15px;
+  }
+  header h1 {
+    font-size: 6vw;
+  }
+  .wrapper {
+    font-size: .6em;
+  }
+  :link {
+    font-size: .7em;
+  }
+  main .image {
+    margin-top: 8px;
+  }
+  main .news {
+    flex-direction: column;
+    display: flex;
+    margin-top: 10px;
+    height: 250px;
+    margin-bottom: 10px;
+  }
+  .contact-information {
+    padding-bottom: 80px;
+    padding-top: 90px;
+  }
+  footer .contact-information {
+    font-size: .7em;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  div {
+    padding-bottom: 15px;
+  }
+  nav div p{
+    padding-top: 15px;
+  }
+  header h1 {
+    font-size: 6vw;
+  }
+  .wrapper {
+    font-size: .7em;
+  }
+  :link {
+    font-size: .9em;
+  }
+  main .image {
+    margin-top: 8px;
+  }
+  main .news {
+    flex-direction: column;
+    display: flex;
+    margin-top: 10px;
+    height: 250px;
+    margin-bottom: 10px;
+  }
+  .contact-information {
+    padding-bottom: 80px;
+    padding-top: 90px;
+  }
+  footer .contact-information {
+    font-size: .8em;
+  }
+}
+
+@media screen and (min-height: 650px) and (min-width: 650px) {
+  div {
+    padding-bottom: 15px;
+  }
+  nav div p{
+    padding-top: 15px;
+  }
+  header h1 {
+    font-size: 6vw;
+  }
+  .wrapper {
+    font-size: 1.5em;
+  }
+  :link {
+    font-size: 1.3em;
+  }
+  main .image {
+    margin-top: 8px;
+  }
+  main .news {
+    flex-direction: column;
+    display: flex;
+    margin-top: 10px;
+    height: 350px;
+    margin-bottom: 10px;
+  }
+  .contact-information {
+    padding-bottom: 80px;
+    padding-top: 90px;
+  }
+  footer .contact-information {
+    font-size: 1.4em;
+  }
+}
+
+/* Above is responsive design for index.html/homepage */
+
 /* Below is main CSS for registration.html */
 
 main .registration, main .login {
@@ -162,7 +306,7 @@ form input {
     text-align: center;
     margin-top: 3%;
     width: 30%;
-    height: 10%; 
+    height: 10%;
 }
 
 /* Above is main CSS for registration.html */
