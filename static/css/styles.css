@@ -80,6 +80,7 @@ main .wrapper {
 
 main .wrapper h3 {
     font-size: 1.5em;
+    margin: 0 0 2.5% 0;
 }
 
 main .wrapper .image {
@@ -211,3 +212,55 @@ footer .contact-information div p {
 }
 
 /* Above is footer CSS */
+
+
+
+@media only screen and (max-width: 700px) {
+
+    nav > a:first-child > div:first-child {
+        border-bottom: 5px solid black;
+    }
+
+    header nav div {
+        padding: 18px;
+        width: 100vw;
+        border-left: none;
+        border-right: none;
+    }
+
+    header nav {
+        margin: 0 0 37px 0;
+        min-height: 150px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0 0 0 0;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        min-height: 300px;
+    }
+
+    main h3 {
+        font-size: 0.9em;
+        width: 85vw;
+        text-align: center;
+    }
+
+    main .news {
+        display: flex;
+        flex-direction: column;
+        min-height: 200px;
+    }
+
+    main .news > div {
+        min-height: 50px;
+        height: 50%;
+    }
+}
