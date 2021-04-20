@@ -5,7 +5,10 @@
 }
 
 header {
-    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    height: 30vh;
     width: 100vw;
     background: #9ddfd3;
     border-bottom: 1px solid black;
@@ -16,7 +19,7 @@ header h1 {
     width: 100vw;
     background: #9ddfd3;
     text-align: center;
-    margin-top: 7vh;
+    /*margin-top: 7vh;*/
     font-size: 2.3em;
 }
 
@@ -34,27 +37,24 @@ header .black-bar {
 }
 
 header nav {
-    height: 7vh;
+    height: 10vh;
     width: 100vw;
     background: #9ddfd3;
     border-bottom: 10px solid #1b2021;
     display: flex;
     justify-content: space-around;
+    padding: 5px;
 }
 
 header nav a {
     text-decoration: none;
-}
-
-header nav div {
     height: 100%;
     width: 23vw;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
-    border-right: 3px solid black;
-    border-left: 3px solid black;
+    border: 3px solid black;
     cursor: pointer;
 }
 
@@ -62,7 +62,7 @@ main {
     height: auto;
     min-height: 60vh;
     width: 100vw;
-    background: #f3f4ed;
+    background: #D0FEF6;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -274,12 +274,13 @@ main .blue-stripe {
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #D0FEF6;
 }
 
-.register-info,
-.login-info {
+.register-info/*,
+.login-info*/ {
     height: 30%;
-    width: 100%;
+    width: 80%;
     background: #;
     display: flex;
     flex-direction: column;
@@ -346,12 +347,88 @@ footer .contact-information div {
 footer .contact-information div p:first-child {
     text-decoration: underline;
     font-size: 1.3em;
+    text-align: left;
 }
 
 footer .contact-information div p {
     padding: 5px;
     font-size: 1.2em;
     opacity: 90%;
+    text-align: left;
 }
 
 /* Above is footer CSS */
+
+
+/* Mobile design for registration page. */
+@media only screen and (max-width: 400px) {
+
+    body {
+        width: 100vw;
+    }
+
+    header {
+        /* keeping this here for now (in case I want to change it later) */
+    }
+
+    header .black-bar {
+        height: 2vh;
+        width: 100vw;
+        background: #1b2021;
+        opacity: 85%;
+    }
+
+    header h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 8%;
+        background: #9ddfd3;
+    }
+
+    header nav a {
+        font-size: 0.8em;
+    }
+
+    div.wrap {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    div.wrap form input {
+        width: 60%;
+        height: 15%;
+    }
+
+    div.register-info {
+        height: 20%;
+    }
+
+    footer {
+        height: 30vh;
+    }
+
+    footer .light-blue-panel {
+        height: 5vh;
+        width: 100vw;
+        background: #9ddfd3;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    footer .contact-information {
+        height: 25vh;
+    }
+
+    footer .contact-information div p {
+        font-size: 0.7em;
+        opacity: 90%;
+    }
+
+    footer .contact-information div p:first-child {
+        text-decoration: underline;
+        font-size: 1em;
+    }
+
+
+}
