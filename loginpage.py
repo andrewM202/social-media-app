@@ -18,9 +18,8 @@ def loginroute():
         if user is not None and user.check_password(request.form['user-password']):
             login_user(user)
             # Send in the login message. loggedin variable so index.html knows not to display certain nav links if user is logged in
-            loginmessage = "You have logged in!"
             loggedin = True
-            return render_template("index.html", loginmessage=loginmessage, loggedin=loggedin)
+            return render_template("index.html", loggedin=loggedin)
 
     return render_template("login.html")
 
