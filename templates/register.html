@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+<div class="page">
 <header>
     <div class="black-bar"></div>
     <nav>
@@ -20,6 +21,7 @@
             <a href=/logout><div><p>Logout</p></div></a>
         {% endif %}
     </nav>
+    <div class="black-bar"></div>
     <h1>Register today!</h1>
 </header>
 <main>
@@ -48,28 +50,25 @@
 </main>
 <footer>
     <div class="light-blue-panel"></div>
+
     <div class="contact-information">
+
         <div>
-            <p>Created By:</p>
-            <p>Aliza Howe</p>
-            <p>Andrew Matt</p>
-            <p>Anthony Keller</p>
-            <p>Gabe Curran</p>
+            Created by Aliza Howe, Andrew Matt, Anthony Keller, and Gabe Curran
         </div>
+
         <div>
-            <p>Created Using:</p>
-            <p>Python/Flask</p>
-            <p>PostgreSQL/postgres</p>
-            <p>HTML, CSS, JavaScript</p>
-            <p>Deployed with Heroku</p>
+            Created with Python/Flask, Postgres/PostgreSQL, HTML, CSS, and Javascript
+
+            Deployed with Heroku
         </div>
+
         <div>
-            <p>Contact Us At:</p>
-            <p>Lorum Ipsum</p>
-            <p>Lorum Ipsum</p>
-            <p>Lorum Ipsum</p>
-            <p>Lorum Ipsum</p>
+            Contact us [stuff here]
         </div>
+
     </div>
+
 </footer>
+</div>
 {% endblock %}

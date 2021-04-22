@@ -1,7 +1,36 @@
+/*
+DESKTOP
+
+HEIGHTS
+    header (30vh)
+    header .black-bar (5vh)
+    header nav (10vh)
+    header nav a (10vh)
+    .login-banner (20vh)
+    main (60vh)
+    main .registration (60vh)
+    main .login (60vh)
+    .wrap (60vh)
+    .register-info (18vh)
+    form (70% of parent = 60vh)
+    form input (10% of parent = 6vh)
+    footer (40vh)
+    footer .light-blue-panel (10vh)
+    footer .contact-information (30vh)
+
+WIDTHS
+    .
+    .
+*/
+
 *, *:before, *:after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.page {
+    height: auto;
 }
 
 header {
@@ -9,59 +38,59 @@ header {
     flex-direction: column;
     align-content: space-around;
     height: 30vh;
-    width: 100vw;
     background: #9ddfd3;
     border-bottom: 1px solid black;
 }
 
-header h1 {
-    height: 5vh;
-    width: 100vw;
-    background: #9ddfd3;
+/*header .login-banner*/ h1 {
     text-align: center;
-    /*margin-top: 7vh;*/
+    background: #9ddfd3;
     font-size: 2.3em;
+    height: 15vh;
+    padding-top: 2vh;
 }
 
-header h3 {
+header .login-banner h3 {
     text-align: center;
-    padding: 1vh 0;
     font-size: 1.5em;
 }
 
 header .black-bar {
+    display: flex;
     height: 5vh;
-    width: 100vw;
+    width: auto;
     background: #1b2021;
     opacity: 85%;
 }
 
 header nav {
-    height: 10vh;
-    width: 100vw;
+    height: 15vh;
+    width: auto;
     background: #9ddfd3;
-    border-bottom: 10px solid #1b2021;
     display: flex;
+    align-items: center;
     justify-content: space-around;
     padding: 5px;
 }
 
 header nav a {
     text-decoration: none;
-    height: 100%;
+    height: 10vh;
     width: 23vw;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
-    border: 3px solid black;
+    border: 1px solid black;
     cursor: pointer;
 }
 
+.login-banner {
+    height: 20vh;
+}
+
 main {
-    height: auto;
-    min-height: 60vh;
-    width: 100vw;
+    height: 60vh;
     background: #D0FEF6;
     display: flex;
     flex-direction: column;
@@ -75,7 +104,7 @@ main .wrapper {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 10vh;
+    /*margin-top: 10vh;*/
 }
 
 main .wrapper h3 {
@@ -83,27 +112,26 @@ main .wrapper h3 {
 }
 
 main .wrapper .image {
-    width: 90vw;
-    height: 40vh;
+    display: flex;
+    /*width: 90vw;
+    height: 40vh;*/
     background: #;
     border: 3px solid #9ddfd3;
 }
 
 main .news {
-    width: 90vw;
-    height: 20vh;
+    /*width: 90vw;
+    height: 20vh;*/
     background: #;
-    margin: 10vh 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 5vw;
+    /*margin: 10vh 0;*/
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
-main .news div {
-    width: 100%;
-    height: 100%;
-    background: #;
+.news div {
+    display: flex;
+    /*width: 40vw;*/
     border: 3px solid #9ddfd3;
 }
 
@@ -117,42 +145,33 @@ main .registration, main .login {
     display: flex;
 }
 
-main .blue-stripe {
-    height: 100%;
-    width: 5%;
-    background: #9ddfd3;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-}
-
 .wrap {
     width: 100%;
-    height: 100%;
+    height: 60vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #D0FEF6;
+    border-left: 15px solid #9ddfd3;
+    border-right: 15px solid #9ddfd3;
 }
 
-.register-info/*,
-.login-info*/ {
-    height: 30%;
-    width: 80%;
+.register-info, .login-info {
+    height: 15vh;
     background: #;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
+
 .register-info h2,
 .login-info h2 {
-    padding-top: 2%;
+    text-align: center;
 }
 
 form {
     height: 70%;
     width: 100%;
-    background: #;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -160,10 +179,11 @@ form {
 }
 
 form input {
+    /*display: flex;*/
     text-align: center;
     margin-top: 3%;
-    width: 30%;
-    height: 10%; 
+    width: 40%;
+    height: 15%;
 }
 
 /* Above is main CSS for registration.html */
@@ -172,45 +192,34 @@ form input {
 
 footer {
     height: 40vh;
-    width: 100vw;
 }
 
 footer .light-blue-panel {
-    height: 10vh;
-    width: 100vw;
+    display: flex;
+    height: 8vh;
     background: #9ddfd3;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    /*border-top: 1px solid black;
+    border-bottom: 1px solid black;*/
 }
 
 footer .contact-information {
-    height: 30vh;
-    width: 100vw;
+    height: 35vh;
     background: #1b2021;
     opacity: 95%;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     color: white;
 }
 
 footer .contact-information div {
+    display: flex;
+    flex-direction: column;
     height: auto;
     width: auto;
-    text-align: center;
-}
-
-footer .contact-information div p:first-child {
-    text-decoration: underline;
-    font-size: 1.3em;
-    text-align: left;
-}
-
-footer .contact-information div p {
-    padding: 5px;
-    font-size: 1.2em;
-    opacity: 90%;
-    text-align: left;
+    align-items: flex-start;
+    width: 90vw;
 }
 
 /* Above is footer CSS */
@@ -220,11 +229,11 @@ footer .contact-information div p {
 @media only screen and (max-width: 400px) {
 
     body {
-        width: 100vw;
+        /*width: 100vw;*/
     }
 
     header {
-        /* keeping this here for now (in case I want to change it later) */
+        height: 40vh
     }
 
     header .black-bar {
@@ -238,12 +247,20 @@ footer .contact-information div p {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 8%;
         background: #9ddfd3;
     }
 
+    header nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 20vh;
+    }
+
     header nav a {
-        font-size: 0.8em;
+        display: flex;
+        height: 15vh;
+        width: 80vw;
     }
 
     div.wrap {
@@ -251,9 +268,14 @@ footer .contact-information div p {
         align-items: center;
     }
 
-    div.wrap form input {
-        width: 60%;
-        height: 15%;
+    form {
+        height: 80%;
+    }
+
+    form input {
+        width: 80vw;
+        height: 20%;
+        font-size: 20px;
     }
 
     div.register-info {
@@ -261,23 +283,23 @@ footer .contact-information div p {
     }
 
     footer {
-        height: 30vh;
+        /*height: 30vh;*/
     }
 
     footer .light-blue-panel {
-        height: 5vh;
-        width: 100vw;
+        /*height: 5vh;
+        width: 100vw;*/
         background: #9ddfd3;
         border-top: 1px solid black;
         border-bottom: 1px solid black;
     }
 
     footer .contact-information {
-        height: 25vh;
+        /*height: 25vh;*/
     }
 
     footer .contact-information div p {
-        font-size: 0.7em;
+        font-size: 1em;
         opacity: 90%;
     }
 
@@ -286,5 +308,16 @@ footer .contact-information div p {
         font-size: 1em;
     }
 
+    .news {
+        flex-direction: column;
+    }
+
+    .news div {
+        width: 100%;
+    }
+
+    .wrap {
+        border: 0px;
+    }
 
 }
