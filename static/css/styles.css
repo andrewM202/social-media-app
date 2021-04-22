@@ -39,7 +39,6 @@ header {
     align-content: space-around;
     height: 30vh;
     background: #9ddfd3;
-    border-bottom: 1px solid black;
 }
 
 /*header .login-banner*/ h1 {
@@ -90,11 +89,13 @@ header nav a {
 }
 
 main {
-    height: 60vh;
+    height: auto;
     background: #D0FEF6;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: 4vh;
+    padding-right: 4vh;
 }
 
 /* Below is main CSS for index.html/homepage */
@@ -109,19 +110,21 @@ main .wrapper {
 
 main .wrapper h3 {
     font-size: 1.5em;
+    text-align: center;
 }
 
 main .wrapper .image {
+    margin-bottom: 4vh;
     display: flex;
-    /*width: 90vw;
-    height: 40vh;*/
+    width: 90vw;
+    height: 30vh;
     background: #;
     border: 3px solid #9ddfd3;
 }
 
 main .news {
-    /*width: 90vw;
-    height: 20vh;*/
+    width: 90vw;
+    height: 30vh;
     background: #;
     /*margin: 10vh 0;*/
     display: flex;
@@ -131,7 +134,7 @@ main .news {
 
 .news div {
     display: flex;
-    /*width: 40vw;*/
+    width: 42vw;
     border: 3px solid #9ddfd3;
 }
 
@@ -145,7 +148,7 @@ main .registration, main .login {
     display: flex;
 }
 
-.wrap {
+.wrap.account {
     width: 100%;
     height: 60vh;
     display: flex;
@@ -203,7 +206,7 @@ footer .light-blue-panel {
 }
 
 footer .contact-information {
-    height: 35vh;
+    height: 100%;
     background: #1b2021;
     opacity: 95%;
     display: flex;
@@ -226,7 +229,7 @@ footer .contact-information div {
 
 
 /* Mobile design for registration page. */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 414px) {
 
     body {
         /*width: 100vw;*/
@@ -308,16 +311,20 @@ footer .contact-information div {
         font-size: 1em;
     }
 
-    .news {
+    main .news {
         flex-direction: column;
+        height: 40vh;
     }
 
     .news div {
         width: 100%;
+        height: 50vh;
+        margin-top: 4px;
+        margin-bottom: 4px;
     }
 
-    .wrap {
-        border: 0px;
+    .wrap.account {
+        border: none;
     }
 
 }
