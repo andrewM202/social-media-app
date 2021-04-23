@@ -217,6 +217,17 @@ footer .contact-information div p {
 
 @media only screen and (max-width: 700px) {
 
+    main .blue-stripe {
+        visibility: hidden;
+    }
+
+    .wrap input {
+        min-width: 300px;
+        width: 60%;
+        min-height: 40px;
+        height: 15%;
+    }
+
     footer .contact-information > div:first-child {
         margin-top: 20px;
     }
