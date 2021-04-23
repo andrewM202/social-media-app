@@ -5,28 +5,31 @@
 {% endblock %}
 
 {% block body %}
+<div class="page">
 <header>
     <div class="black-bar"></div>
     <nav>
-        <!-- If the user is not logged in, then display the login buttton -->
+        <!-- If the user is not logged in, then display the login button -->
         {% if not loggedin %}
-            <a href=/login><div><p>Login</p></div></a>
+            <a href=/login>Login</a>
         {% endif %}
 
-        <a href=/><div><p>Homepage</p></div></a>
+        <a href=/>Homepage</a>
 
         <!-- If the user is logged in, display the logout button -->
         {% if loggedin %}
             <a href=/logout><div><p>Logout</p></div></a>
         {% endif %}
     </nav>
-    <h1>Social Media App</h1>
+    <div class="black-bar"></div>
+    <h1>Register today!</h1>
 </header>
 <main>
     <section class="registration">
         <div class="blue-stripe"></div>
-        <div class="wrap">
+        <div class="wrap account">
             <div class="register-info">
+                Enter your information below.
                 {% if error %}
                     <h2>{{ error }}</h2>
                 {% endif %}
@@ -47,28 +50,25 @@
 </main>
 <footer>
     <div class="light-blue-panel"></div>
+
     <div class="contact-information">
+
         <div>
-            <p>Created By:</p>
-            <p>Aliza Howe</p>
-            <p>Andrew Matt</p>
-            <p>Anthony Keller</p>
-            <p>Gabe Curran</p>
+            Created by Aliza Howe, Andrew Matt, Anthony Keller, and Gabe Curran
         </div>
+
         <div>
-            <p>Created Using:</p>
-            <p>Python/Flask</p>
-            <p>PostgreSQL/postgres</p>
-            <p>HTML, CSS, JavaScript</p>
-            <p>Deployed with Heroku</p>
+            Created with Python/Flask, Postgres/PostgreSQL, HTML, CSS, and Javascript
+
+            Deployed with Heroku
         </div>
+
         <div>
-            <p>Contact Us At:</p>
-            <p>Lorum Ipsum</p>
-            <p>Lorum Ipsum</p>
-            <p>Lorum Ipsum</p>
-            <p>Lorum Ipsum</p>
+            Contact us [stuff here]
         </div>
+
     </div>
+
 </footer>
+</div>
 {% endblock %}
