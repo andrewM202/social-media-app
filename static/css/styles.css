@@ -229,7 +229,13 @@ footer .contact-information div {
 
 
 /* Mobile design for registration page. */
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 700px) {
+
+    main h3 {
+        font-size: 0.9em;
+        width: 85vw;
+        text-align: center;
+    }
 
     body {
         /*width: 100vw;*/
@@ -237,6 +243,7 @@ footer .contact-information div {
 
     header {
         height: 40vh;
+        min-height: 230px;
     }
 
     header .black-bar {
@@ -251,6 +258,7 @@ footer .contact-information div {
         justify-content: center;
         align-items: center;
         background: #9ddfd3;
+        min-height: 70px;
     }
 
     header nav {
@@ -326,5 +334,4 @@ footer .contact-information div {
     .wrap.account {
         border: none;
     }
-
 }
