@@ -1,3 +1,6 @@
+border: 2px solid red;
+(for testing)
+
 # Social-Media-App
 
 A social media application created using Flask/Python, postgreSQL and SQLAlchemy, HTML, CSS, and JavaScript. 
