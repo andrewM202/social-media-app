@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block body %}
+<meta name="google-signin-client_id" content="319666244769-frpa34c0aaem6b3de21rvuie14lkploi.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <header>
     <div class="black-bar"></div>
     <nav>
@@ -39,6 +41,14 @@
         </div>
         <div class="blue-stripe"></div>
     </div>
+      <div id="fb-root"></div>
+      <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=3849666025153559&autoLogAppEvents=1" nonce="yPbI9BHe"></script>
+<fb:login-button
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+<div class="g-signin2" data-onsuccess="onSignIn"</div>
 </main>
 <footer>
     <div class="light-blue-panel"></div>
