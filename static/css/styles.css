@@ -1,26 +1,8 @@
 /*
-DESKTOP
-
-HEIGHTS
-    header (30vh)
-    header .black-bar (5vh)
-    header nav (10vh)
-    header nav a (10vh)
-    .login-banner (20vh)
-    main (60vh)
-    main .registration (60vh)
-    main .login (60vh)
-    .wrap (60vh)
-    .register-info (18vh)
-    form (70% of parent = 60vh)
-    form input (10% of parent = 6vh)
-    footer (40vh)
-    footer .light-blue-panel (10vh)
-    footer .contact-information (30vh)
-
-WIDTHS
-    .
-    .
+Light mode colors:
+    #9ddfd3
+    #1b2021
+    #D0FEF6
 */
 
 *, *:before, *:after {
@@ -223,6 +205,14 @@ footer .contact-information div {
     width: auto;
     align-items: flex-start;
     width: 90vw;
+}
+
+.dark-mode-button {
+    height: 15vh;
+    width: 15vh;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 
 /* Above is footer CSS */
