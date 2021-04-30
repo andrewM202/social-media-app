@@ -20,6 +20,8 @@ def loginroute():
             # Send in the login message. loggedin variable so index.html knows not to display certain nav links if user is logged in
             loggedin = True
             return render_template("index.html", loggedin=loggedin)
+        else:    
+            print('false')
 
     return render_template("login.html")
 
