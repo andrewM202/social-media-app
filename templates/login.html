@@ -9,14 +9,14 @@
     <div class="black-bar"></div>
     <nav>
         <!-- Only show register button if user is not logged in -->
-        {% if not loginmessage %}
+        {% if not current_user.is_authenticated %}
             <a href=register><div><p>Registration</p></div></a>
         {% endif %}
 
         <a href=/><div><p>Homepage</p></div></a>
 
         <!-- Only show logout if the user is logged in. If a login message is sent, that means the user is logged in -->
-        {% if loginmessage %}
+        {% if current_user.is_authenticated %}
             <a href=/logout><div><p>Logout</p></div></a>
         {% endif %}
     </nav>
@@ -67,3 +67,4 @@
     </div>
 </footer>
 {% endblock %}
+

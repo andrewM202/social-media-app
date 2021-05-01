@@ -6,6 +6,7 @@
 
 header {
     height: 30vh;
+    min-height: 270px;
     width: 100vw;
     background: #9ddfd3;
     border-bottom: 1px solid black;
@@ -13,10 +14,11 @@ header {
 
 header h1 {
     height: 5vh;
+    min-height: 70px;
     width: 100vw;
     background: #9ddfd3;
     text-align: center;
-    margin-top: 7vh;
+    margin-top: 60px;
     font-size: 2.3em;
 }
 
@@ -28,6 +30,7 @@ header h3 {
 
 header .black-bar {
     height: 5vh;
+    min-height: 35px;
     width: 100vw;
     background: #1b2021;
     opacity: 85%;
@@ -35,6 +38,7 @@ header .black-bar {
 
 header nav {
     height: 7vh;
+    min-height: 65px;
     width: 100vw;
     background: #9ddfd3;
     border-bottom: 10px solid #1b2021;
@@ -92,6 +96,7 @@ main .wrapper .image {
 main .news {
     width: 90vw;
     height: 20vh;
+    min-height: 200px;
     background: #;
     margin: 10vh 0;
     display: grid;
@@ -103,7 +108,7 @@ main .news {
 main .news div {
     width: 100%;
     height: 100%;
-    background: #;
+    min-height: 50px;
     border: 3px solid #9ddfd3;
 }
 
@@ -113,6 +118,7 @@ main .news div {
 
 main .registration, main .login {
     height: 60vh;
+    min-height: 400px;
     width: 90%;
     display: flex;
 }
@@ -128,6 +134,7 @@ main .blue-stripe {
 .wrap {
     width: 100%;
     height: 100%;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
 }
@@ -135,6 +142,7 @@ main .blue-stripe {
 .register-info,
 .login-info {
     height: 30%;
+    min-height: 100px;
     width: 100%;
     background: #;
     display: flex;
@@ -150,6 +158,7 @@ main .blue-stripe {
 
 form {
     height: 70%;
+    min-height: 300px;
     width: 100%;
     background: #;
     display: flex;
@@ -163,6 +172,8 @@ form input {
     margin-top: 3%;
     width: 30%;
     height: 10%; 
+    min-height: 40px;
+    min-width: 300px;
 }
 
 /* Above is main CSS for registration.html */
@@ -171,11 +182,13 @@ form input {
 
 footer {
     height: 40vh;
+    min-height: 400px;
     width: 100vw;
 }
 
 footer .light-blue-panel {
     height: 10vh;
+    min-height: 80px;
     width: 100vw;
     background: #9ddfd3;
     border-top: 1px solid black;
@@ -184,6 +197,7 @@ footer .light-blue-panel {
 
 footer .contact-information {
     height: 30vh;
+    min-height: 320px;
     width: 100vw;
     background: #1b2021;
     opacity: 95%;
@@ -211,3 +225,156 @@ footer .contact-information div p {
 }
 
 /* Above is footer CSS */
+
+/* Below is chatpage CSS */
+
+
+main .send-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 10vh;
+    min-height: 100px;
+}
+
+main .message-wrapper {
+    width: 90%;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: 50px;
+    margin-left: 50px;
+    overflow: scroll;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+main .message-wrapper ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    width: 100%;
+}
+main .message-wrapper ul li {
+    margin: 5px;
+    padding: 7px;
+    font-size: 1.3em;
+    border-radius: 15px;
+    border: 3px solid black;
+    background: #f8f5f1;
+    width: 50%;
+    overflow-wrap: normal;
+    align-self: flex-start;
+}
+
+main .send-wrapper input[type="text"] {
+    width: 100%;
+    height: 50%;
+    min-height: 50px;
+    text-align: center;
+    border: 0;
+    font-size: 1.12rem;
+    background: #f3f4ed;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+main .send-wrapper button {
+    width: 100%;
+    height: 50%;
+    min-height: 50px;
+    border: 0;
+    font-size: 1.12rem;
+    background: #B4FFF1;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+/* Above is chatpage CSS */
+
+/* Below is mobile design for home page */
+
+@media only screen and (max-width: 700px) {
+    main .message-wrapper {
+        width: 100%;
+    }
+
+    main .send-wrapper {
+        width: 100%;
+    }
+
+    main .blue-stripe {
+        visibility: hidden;
+    }
+    .wrap input {
+        min-width: 300px;
+        width: 60%;
+        min-height: 40px;
+        height: 15%;
+    }
+    footer .contact-information > div:first-child {
+        margin-top: 20px;
+    }
+    footer .contact-information > div:last-child {
+        border-bottom: none;
+    }
+    footer .contact-information > div {
+        padding: 0px 0 12px 0;
+        width: 100vw;
+        margin: 0 0 20px 0;
+        border-bottom: 2px solid white;
+    }
+    footer .contact-information {
+        display: flex;
+        height: auto;
+        flex-direction: column;
+    }
+    nav > a:first-child > div:first-child {
+        border-bottom: 5px solid black;
+    }
+    header nav div {
+        padding: 18px;
+        width: 100vw;
+        border-left: none;
+        border-right: none;
+    }
+    header nav {
+        margin: 0 0 37px 0;
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header h1 {
+        margin: 0 0 0 0;
+        min-height: 70px;
+    }
+    header {
+        display: flex;
+        flex-direction: column;
+        min-height: 230px;
+        height: auto;
+    }
+    main h3 {
+        font-size: 0.9em;
+        width: 85vw;
+        text-align: center;
+    }
+    main .news {
+        display: flex;
+        flex-direction: column;
+        min-height: 200px;
+    }
+    main .news > div {
+        min-height: 50px;
+        height: 50%;
+    }
+}
+

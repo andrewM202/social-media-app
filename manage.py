@@ -4,14 +4,12 @@ import os
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
-from app import create_app
+from app import app
 # import our database object so we can run migrations to our postgres db
 from models import db
 # import the default config we setup in configs.py
 from config import Config
 
-# temporarily remove this app = create_app(Config)
-app = create_app()
 
 app.config.from_object(os.environ['APP_SETTINGS'])
 
@@ -23,3 +21,4 @@ manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
     manager.run()
+

@@ -23,5 +23,7 @@ __pycache__/
 instance/
 *.pyc
 
-.swp
+*.swp
+*.swo
+migrations/
 

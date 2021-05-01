@@ -9,14 +9,14 @@
     <div class="black-bar"></div>
     <nav>
         <!-- If the user is not logged in, then display the login buttton -->
-        {% if not loggedin %}
+        {% if not current_user.is_authenticated %}
             <a href=/login><div><p>Login</p></div></a>
         {% endif %}
 
         <a href=/><div><p>Homepage</p></div></a>
 
         <!-- If the user is logged in, display the logout button -->
-        {% if loggedin %}
+        {% if current_user.is_authenticated %}
             <a href=/logout><div><p>Logout</p></div></a>
         {% endif %}
     </nav>
@@ -72,3 +72,5 @@
     </div>
 </footer>
 {% endblock %}
+
+

@@ -1,42 +1,55 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<!-- jquery script -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"
+></script>
+<!-- socket.io script -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"
+    integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ=="
+    crossorigin="anonymous"
+></script>
+
+<!-- stylesheet link -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<!-- script link -->
+<script src="{{ url_for('static', filename='javascript/chatscript.js') }}"></script>
+
+<script type="text/javascript">
+    const username = "{{ current_user }}";
+</script>
+
 {% endblock %}
 
 {% block body %}
 <header>
     <div class="black-bar"></div>
     <nav>
-        <!-- If not logged in, show the login button -->
+        <!-- If the user is not logged in, then display the login buttton -->
         {% if not current_user.is_authenticated %}
             <a href=/login><div><p>Login</p></div></a>
         {% endif %}
 
-        <!-- If the user is logged in, don't show the register button -->
-        {% if not current_user.is_authenticated %}
-            <a href=/register><div><p>Register</p></div></a>
-        {% endif %}
+        <a href=/><div><p>Homepage</p></div></a>
 
-        <!-- If logged in, show the logout button -->
+        <!-- If the user is logged in, display the logout button -->
         {% if current_user.is_authenticated %}
             <a href=/logout><div><p>Logout</p></div></a>
         {% endif %}
-        <!-- if logged in, show chat button -->
-        {% if current_user.is_authenticated %}
-            <a href=/chat><div><p>Chat</p></div></a>
-        {% endif %}
     </nav>
-    <h1>Social Media App</h1>
+    <h1>Chat Below!</h1>
 </header>
 <main>
-    <div class="wrapper">
-        <h3>Taking Social Media to a Whole New Level!</h3>
-        <div class="image"></div>
+    <div class="message-wrapper">
+        <ul id="messages"></ul>
     </div>
-    <div class="news">
-        <div></div>
-        <div></div>
+    <div class="send-wrapper">
+        <input type="text" id="myMessage" placeholder="Type here..." autofocus/>
+        <button id="sendbutton">Send</button>
     </div>
 </main>
 <footer>
@@ -66,5 +79,4 @@
     </div>
 </footer>
 {% endblock %}
-
 
