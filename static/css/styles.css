@@ -3,6 +3,9 @@ Light mode colors:
     #9ddfd3
     #1b2021
     #D0FEF6
+
+Dark mode colors:
+    #444F4D
 */
 
 *, *:before, *:after {
@@ -54,7 +57,7 @@ header nav {
     padding: 5px;
 }
 
-header nav a {
+header nav > a {
     text-decoration: none;
     height: 10vh;
     width: 23vw;
@@ -114,7 +117,7 @@ main .news {
     justify-content: space-between;
 }
 
-.news div {
+#newsDiv1, #newsDiv2 {
     display: flex;
     width: 42vw;
     border: 3px solid #9ddfd3;
