@@ -29,42 +29,46 @@ WIDTHS
     box-sizing: border-box;
 }
 
+
+body > header {
+    height: 30vh;
+    min-height: 270px;
+    width: 100vw;
+    background: #9ddfd3;
+}
 .page {
     height: auto;
 }
+    
 
-header {
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    height: 30vh;
+body > header h1 {
+    height: 5vh;
+    min-height: 70px;
+    width: 100vw;
     background: #9ddfd3;
-}
-
-/*header .login-banner*/ h1 {
     text-align: center;
-    background: #9ddfd3;
-    font-size: 2.3em;
-    height: 15vh;
-    padding-top: 2vh;
-}
+    margin-top: 60px;
+ 
 
-header .login-banner h3 {
+
+body > header h3 {
     text-align: center;
     font-size: 1.5em;
 }
 
-header .black-bar {
-    display: flex;
+
+body > header .black-bar {
     height: 5vh;
-    width: auto;
+    min-height: 35px;
+    width: 100vw;
     background: #1b2021;
     opacity: 85%;
 }
 
-header nav {
-    height: 15vh;
-    width: auto;
+body > header nav {
+    height: 7vh;
+    min-height: 65px;
+    width: 100vw;
     background: #9ddfd3;
     display: flex;
     align-items: center;
@@ -72,9 +76,12 @@ header nav {
     padding: 5px;
 }
 
-header nav a {
+body > header nav a {
     text-decoration: none;
-    height: 10vh;
+}
+
+body > header nav div {
+    height: 100%;
     width: 23vw;
     display: flex;
     justify-content: center;
@@ -84,11 +91,7 @@ header nav a {
     cursor: pointer;
 }
 
-.login-banner {
-    height: 20vh;
-}
-
-main {
+body > main {
     height: auto;
     background: #D0FEF6;
     display: flex;
@@ -100,7 +103,7 @@ main {
 
 /* Below is main CSS for index.html/homepage */
 
-main .wrapper {
+body > main .wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,23 +111,22 @@ main .wrapper {
     /*margin-top: 10vh;*/
 }
 
-main .wrapper h3 {
+body > main .wrapper h3 {
     font-size: 1.5em;
     text-align: center;
 }
 
-main .wrapper .image {
-    margin-bottom: 4vh;
-    display: flex;
+body > main .wrapper .image {
     width: 90vw;
     height: 30vh;
     background: #;
     border: 3px solid #9ddfd3;
 }
 
-main .news {
+body > main .news {
     width: 90vw;
-    height: 30vh;
+    height: 20vh;
+    min-height: 200px;
     background: #;
     /*margin: 10vh 0;*/
     display: flex;
@@ -132,9 +134,10 @@ main .news {
     justify-content: space-between;
 }
 
-.news div {
-    display: flex;
-    width: 42vw;
+body > main .news div {
+    width: 100%;
+    height: 100%;
+    min-height: 50px;
     border: 3px solid #9ddfd3;
 }
 
@@ -142,15 +145,25 @@ main .news {
 
 /* Below is main CSS for registration.html */
 
-main .registration, main .login {
+body > main .registration, main .login {
     height: 60vh;
+    min-height: 400px;
     width: 90%;
     display: flex;
 }
 
-.wrap.account {
+body > main .blue-stripe {
+    height: 100%;
+    width: 5%;
+    background: #9ddfd3;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.wrap {
     width: 100%;
-    height: 60vh;
+    height: 100%;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,8 +172,11 @@ main .registration, main .login {
     border-right: 15px solid #9ddfd3;
 }
 
-.register-info, .login-info {
-    height: 15vh;
+.register-info,
+.login-info {
+    height: 30%;
+    min-height: 100px;
+    width: 100%;
     background: #;
     display: flex;
     align-items: center;
@@ -174,6 +190,7 @@ main .registration, main .login {
 
 form {
     height: 70%;
+    min-height: 300px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -185,28 +202,40 @@ form input {
     /*display: flex;*/
     text-align: center;
     margin-top: 3%;
-    width: 40%;
-    height: 15%;
+    width: 30%;
+    height: 10%; 
+    min-height: 40px;
+    min-width: 300px;
 }
 
 /* Above is main CSS for registration.html */
 
 /* Below is footer CSS */
 
-footer {
+body > footer {
     height: 40vh;
+    min-height: 400px;
+    width: 100vw;
 }
 
-footer .light-blue-panel {
-    display: flex;
-    height: 8vh;
+body > footer .light-blue-panel { /* CSS for chatpage also included */
+    height: auto;
+    min-height: 100px;
+    width: 100vw;
     background: #9ddfd3;
-    /*border-top: 1px solid black;
-    border-bottom: 1px solid black;*/
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    /* chatpage specific CSS below */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* chatpage specific CSS above */
 }
 
-footer .contact-information {
-    height: 100%;
+body > footer .contact-information {
+    height: 30vh;
+    min-height: 320px;
+    width: 100vw;
     background: #1b2021;
     opacity: 95%;
     display: flex;
@@ -216,122 +245,304 @@ footer .contact-information {
     color: white;
 }
 
-footer .contact-information div {
-    display: flex;
-    flex-direction: column;
+body > footer .contact-information div {
     height: auto;
     width: auto;
     align-items: flex-start;
     width: 90vw;
 }
 
+body > footer .contact-information div p:first-child {
+    text-decoration: underline;
+    font-size: 1.3em;
+}
+
+body > footer .contact-information div p {
+    padding: 5px;
+    font-size: 1.2em;
+    opacity: 90%;
+}
+
 /* Above is footer CSS */
 
+/* Below is chatpage CSS */
 
-/* Mobile design for registration page. */
+body > footer .private-message-wrapper {
+    width: 30%;
+    height: 100%;
+    min-height: 106px;
+    background: #;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+body > footer .chatrooms-list {
+    width: 50%;
+    height: auto;
+    min-height: 100px;
+    background: #;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body > footer .chatrooms-list header {
+    height: 30px;
+    width: 100%;
+    background: #;
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: 1px solid black;
+}
+
+body > footer .chatrooms-list main {
+    height: auto;
+    min-height: 70px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+body > footer .chatrooms-list main h4 {
+    margin: 0 15px;
+}
+
+body > footer #private-message-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    background: #f3f4ed;
+    cursor: pointer;
+    margin-left: 10px;
+    outline: none;
+}
+
+body > footer #private-message-wrapper h3 {
+    font-size: 10em;
+}
+
+body > footer #add-private-message-div {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    bottom: calc(100% + 15px);
+    background: #B4FFF1;
+    border: 3px solid black;
+    flex-direction: column;
+    text-align: center;
+}
+
+body > footer #add-private-message-div * {
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+body > footer #add-private-message-div *:not(h4) {
+    width: 70%;
+}
+
+body > footer #add-private-message-div h4 {
+    margin-top: 25px;
+    font-size: 1.5rem;
+}
+
+body > main .send-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 10vh;
+    min-height: 100px;
+}
+
+body > main .message-wrapper {
+    width: 90%;
+    height: 80vh;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: 50px;
+    margin-left: 50px;
+    overflow: scroll;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+body > main .message-wrapper ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    width: 100%;
+}
+body > main .message-wrapper ul li {
+    margin: 10px 15px 10px 15px;
+    border: 6px solid #8ab6d6;
+    padding: 7px;
+    padding-left: 15px;
+    font-size: 1.3em;
+    border-radius: 15px;
+    width: 52%;
+    overflow-wrap: normal;
+    align-self: flex-start;
+}
+
+body > main .message-wrapper ul li h3 {
+    padding-bottom: 15px;
+}
+
+
+body > main .send-wrapper input[type="text"] {
+    width: 100%;
+    height: 50%;
+    min-height: 50px;
+    text-align: center;
+    border: 0;
+    font-size: 1.12rem;
+    background: #f3f4ed;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+
+body > main .send-wrapper button {
+    width: 100%;
+    height: 50%;
+    min-height: 50px;
+    border: 0;
+    font-size: 1.12rem;
+    background: #B4FFF1;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+/* Above is chatpage CSS */
+
+/* Below is mobile design for home page */
+
 @media only screen and (max-width: 700px) {
+    body > main .message-wrapper {
+        width: 100%;
+    }
 
-    main h3 {
+    body > main .send-wrapper {
+        width: 100%;
+    }
+
+    body > main .blue-stripe {
+        visibility: hidden;
+    }
+
+    .wrap input {
+        min-width: 300px;
+        width: 60%;
+        min-height: 40px;
+        height: 15%;
+    }
+
+    body > footer .contact-information > div:first-child {
+        margin-top: 20px;
+    }
+
+    body > footer .contact-information > div:last-child {
+        border-bottom: none;
+    }
+
+    body > footer .contact-information > div {
+        padding: 0px 0 12px 0;
+        width: 100vw;
+        margin: 0 0 20px 0;
+        border-bottom: 2px solid white;
+    }
+
+    body > footer .contact-information {
+        display: flex;
+        height: auto;
+        flex-direction: column;
+    }
+
+    body > footer #add-private-message-div {
+        height: 250px;
+    }
+
+    body > footer #private-message-button {
+        margin-left: 10px;
+    }
+
+    body > footer .light-blue-panel {
+        flex-direction: column;
+    }
+
+    body > footer .chatrooms-list {
+        width: 100%;
+    }
+
+    body > footer .private-message-wrapper {
+        width: 100%;
+    }
+
+    nav > a:first-child > div:first-child {
+        border-bottom: 5px solid black;
+    }
+
+    body > header nav div {
+        padding: 18px;
+        width: 100vw;
+        border-left: none;
+        border-right: none;
+    }
+
+    body > header nav {
+        margin: 0 0 37px 0;
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body > header h1 {
+        margin: 0 0 0 0;
+        min-height: 70px;
+    }
+
+    body > header {
+        display: flex;
+        flex-direction: column;
+        min-height: 230px;
+        height: auto;
+    }
+
+    body > main div > h3 {
         font-size: 0.9em;
         width: 85vw;
         text-align: center;
     }
 
-    body {
-        /*width: 100vw;*/
-    }
-
-    header {
-        height: 40vh;
-        min-height: 230px;
-    }
-
-    header .black-bar {
-        height: 2vh;
-        width: 100vw;
-        background: #1b2021;
-        opacity: 85%;
-    }
-
-    header h1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #9ddfd3;
-        min-height: 70px;
-    }
-
-    header nav {
+    body > main .news {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        height: 20vh;
+        min-height: 200px;
     }
 
-    header nav a {
-        display: flex;
-        height: 15vh;
-        width: 80vw;
+    body > main .news > div {
+        min-height: 50px;
+        height: 50%;
     }
 
-    div.wrap {
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    form {
-        height: 80%;
-    }
-
-    form input {
-        width: 80vw;
-        height: 20%;
-        font-size: 20px;
-    }
-
-    div.register-info {
-        height: 20%;
-    }
-
-    footer {
-        /*height: 30vh;*/
-    }
-
-    footer .light-blue-panel {
-        /*height: 5vh;
-        width: 100vw;*/
-        background: #9ddfd3;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-    }
-
-    footer .contact-information {
-        /*height: 25vh;*/
-    }
-
-    footer .contact-information div p {
-        font-size: 1em;
-        opacity: 90%;
-    }
-
-    footer .contact-information div p:first-child {
-        text-decoration: underline;
-        font-size: 1em;
-    }
-
-    main .news {
-        flex-direction: column;
-        height: 40vh;
-    }
-
-    .news div {
-        width: 100%;
-        height: 50vh;
-        margin-top: 4px;
-        margin-bottom: 4px;
-    }
-
-    .wrap.account {
-        border: none;
-    }
 }
+
