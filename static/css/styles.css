@@ -525,15 +525,23 @@ body > main .send-wrapper button {
     }
 
     body > main .news {
-        display: flex;
         flex-direction: column;
-        min-height: 200px;
+        height: 40vh;
     }
 
-    body > main .news > div {
-        min-height: 50px;
-        height: 50%;
+    .news div {
+        width: 100%;
+        height: 50vh;
+        margin-top: 4px;
+        margin-bottom: 4px;
     }
 
+    .wrap.account {
+        border: none;
+    }
+
+    .black-bar:last-of-type {
+        display: none;
+    }
 }
 

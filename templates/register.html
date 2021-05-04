@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block body %}
-<div class="page">
 <header>
     <div class="black-bar"></div>
     <nav>
@@ -14,7 +13,7 @@
             <a href=/login><div><p>Login</p></div></a>
         {% endif %}
 
-        <a href=/>Homepage</a>
+        <a href=/><div><p>Homepage</div></p></a>
 
         <!-- If the user is logged in, display the logout button -->
         {% if current_user.is_authenticated %}
@@ -29,7 +28,7 @@
         <div class="blue-stripe"></div>
         <div class="wrap account">
             <div class="register-info">
-                Enter your information below.
+                <h3>Enter your information below.</h3>
                 {% if error %}
                     <h2>{{ error }}</h2>
                 {% endif %}
@@ -50,27 +49,30 @@
 </main>
 <footer>
     <div class="light-blue-panel"></div>
-
     <div class="contact-information">
-
         <div>
-            Created by Aliza Howe, Andrew Matt, Anthony Keller, and Gabe Curran
+            <p>Created By:</p>
+            <p>Aliza Howe</p>
+            <p>Andrew Matt</p>
+            <p>Anthony Keller</p>
+            <p>Gabe Curran</p>
         </div>
-
         <div>
-            Created with Python/Flask, Postgres/PostgreSQL, HTML, CSS, and Javascript
-
-            Deployed with Heroku
+            <p>Created Using:</p>
+            <p>Python/Flask</p>
+            <p>PostgreSQL/postgres</p>
+            <p>HTML, CSS, JavaScript</p>
+            <p>Deployed with Heroku</p>
         </div>
-
         <div>
-            Contact us [stuff here]
+            <p>Contact Us At:</p>
+            <p>Contact us [stuff here]</p>
+            <p>Contact us [stuff here]</p>
+            <p>Contact us [stuff here]</p>
+            <p>Contact us [stuff here]</p>
         </div>
-
     </div>
-
 </footer>
-</div>
 {% endblock %}
 
 
