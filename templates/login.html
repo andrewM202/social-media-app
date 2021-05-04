@@ -1,23 +1,20 @@
-{% extends 'base.html' %}
-
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
 {% block body %}
-<div class="page">
 <header>
     <div class="black-bar"></div>
     <nav>
         <!-- Only show register button if user is not logged in -->
-        {% if not loginmessage %}
+        {% if not current_user.is_authenticated %}
             <a href=register><div><p>Registration</p></div></a>
         {% endif %}
 
         <a href=/><div><p>Homepage</p></div></a>
 
         <!-- Only show logout if the user is logged in. If a login message is sent, that means the user is logged in -->
-        {% if loginmessage %}
+        {% if current_user.is_authenticated %}
             <a href=/logout><div><p>Logout</p></div></a>
         {% endif %}
     </nav>
@@ -44,23 +41,29 @@
 </main>
 <footer>
     <div class="light-blue-panel"></div>
-
     <div class="contact-information">
-
         <div>
-            Created by Aliza Howe, Andrew Matt, Anthony Keller, and Gabe Curran
+            <p>Created By:</p>
+            <p>Aliza Howe</p>
+            <p>Andrew Matt</p>
+            <p>Anthony Keller</p>
+            <p>Gabe Curran</p>
         </div>
-
         <div>
-            Created with Python/Flask, Postgres/PostgreSQL, HTML, CSS, and Javascript
-
-            Deployed with Heroku
+            <p>Created Using:</p>
+            <p>Python/Flask</p>
+            <p>PostgreSQL/postgres</p>
+            <p>HTML, CSS, JavaScript</p>
+            <p>Deployed with Heroku</p>
         </div>
-
-        <div>Contact us [stuff here]</div>
-
+        <div>
+            <p>Contact Us At:</p>
+            <p>Contact us [stuff here]</p>
+            <p>Contact us [stuff here]</p>
+            <p>Contact us [stuff here]</p>
+            <p>Contact us [stuff here]</p>
+        </div>
     </div>
-
 </footer>
-</div>
 {% endblock %}
+

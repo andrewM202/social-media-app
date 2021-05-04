@@ -13,10 +13,9 @@ bp = Blueprint("homepage", __name__)
 def login():
     """ Login page for social media app """
 
-    loggedin = False
 
     if current_user.is_authenticated:
-        loggedin = True
-        return render_template("index.html", loggedin=loggedin)
+        return render_template("index.html")
 
-    return render_template("index.html", loggedin=loggedin)
+    return render_template("index.html")
+

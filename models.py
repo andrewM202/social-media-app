@@ -6,6 +6,9 @@ from sqlalchemy import create_engine
 # import python libraries for strings and random string generator
 import string
 import random
+import datetime
+from sqlalchemy.sql import func
+
 
 # create our SQLAlchemy db object that will be used to interact with our databa    se
 db = SQLAlchemy()
@@ -43,7 +46,7 @@ class userInformation(db.Model, UserMixin):
         return check_password_hash(self.password_salt_hash, password)
 
     def __repr__(self):
-        return f"{self.username}:{self.password}"
+        return f"{self.username}"
 
 
 @login.user_loader
@@ -54,14 +57,24 @@ def load_user(id):
 class userPostings(db.Model):
     __tablename__ = 'userposts'
 
-    id = db.Column(db.Integer, primary_key=True)
-    userid = db.Column(db.BigInteger, db.ForeignKey("userinfo.id"))
+    # each post will have an id so we can uniquely identify each post
+    postid = db.Column(db.BigInteger, primary_key=True)
+    # get userid so we can connect each post to the user
+    username = db.Column(db.String(20), nullable=False)
+    # store the actual post itself
     posts = db.Column(db.String(5000))
-    postdate = db.Column(db.DateTime())
+    # get the post's date so we can know when the post was made
+    postdate = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    # connect the session id to the user id
+    sessionid = db.Column(db.String(300))
+    # what room message in
+    
 
-    def __init__(self, posts, postdate):
+    def __init__(self, posts, sessionid, username):
+        self.username = username
         self.posts = posts
-        self.postdate = postdate
+        self.sessionid = sessionid
 
     def __repr__(self):
         return f"{self.posts}:{self.postdate}"
+

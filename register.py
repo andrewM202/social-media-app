@@ -12,13 +12,12 @@ bp = Blueprint("register", __name__)
 def register():
     """ Renders registration page for social media app """
 
-    loggedin = False
     # If the user is logged in, don't show the login button
     if current_user.is_authenticated:
         return redirect("/")
 
     # If the user is not logged in, don't show the logout button
-    return render_template("register.html", loggedin=loggedin)
+    return render_template("register.html")
 
 @bp.route("/send-user-info", methods=['POST', 'GET'])
 def register_account():
@@ -47,6 +46,7 @@ def register_account():
 
         success = "Registration successful!"
         return render_template("register.html", success=success)
+
 
 
 

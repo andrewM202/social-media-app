@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<!-- jquery script -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"
+></script>
+<!-- socket.io script -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"
+    integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ=="
+    crossorigin="anonymous"
+></script>
+
+<!-- stylesheet link -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<!-- script link -->
+<script src="{{ url_for('static', filename='javascript/chatscript.js') }}"></script>
+
+<script type="text/javascript">
+    const username = "{{ current_user }}";
+    let previously_in_chatroom;
+    if("{{ previously_joined }}" == "False") {
+        previously_in_chatroom = false;
+    } else {
+        previously_in_chatroom = true;
+    }
+</script>
+
+{% endblock %}
+
+{% block body %}
+<header>
+    <div class="black-bar"></div>
+    <nav>
+        <!-- If the user is not logged in, then display the login buttton -->
+        {% if not current_user.is_authenticated %}
+            <a href=/login><div><p>Login</p></div></a>
+        {% endif %}
+
+        <a href=/><div><p>Homepage</p></div></a>
+
+        <!-- If the user is logged in, display the logout button -->
+        {% if current_user.is_authenticated %}
+            <a href=/logout><div><p>Logout</p></div></a>
+        {% endif %}
+    </nav>
+    <div class="black-bar"></div>
+    <h1>Chat Below!</h1>
+</header>
+<main>
+    <div class="message-wrapper">
+        <ul id="messages"></ul>
+    </div>
+    <div class="send-wrapper">
+        <input type="text" id="myMessage" placeholder="Type here..." autofocus /> 
+        <button id="sendbutton">Send</button>
+    </div>
+</main>
+<footer>
+    <div class="light-blue-panel">
+    </div>
+    <div class="contact-information">
+        <div>
+            <p>Created By:</p>
+            <p>Aliza Howe</p>
+            <p>Andrew Matt</p>
+            <p>Anthony Keller</p>
+            <p>Gabe Curran</p>
+        </div>
+        <div>
+            <p>Created Using:</p>
+            <p>Python/Flask</p>
+            <p>PostgreSQL/postgres</p>
+            <p>HTML, CSS, JavaScript</p>
+            <p>Deployed with Heroku</p>
+        </div>
+        <div>
+            <p>Contact Us At:</p>
+            <p>Lorum Ipsum</p>
+            <p>Lorum Ipsum</p>
+            <p>Lorum Ipsum</p>
+            <p>Lorum Ipsum</p>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
