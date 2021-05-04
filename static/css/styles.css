@@ -29,17 +29,13 @@ WIDTHS
     box-sizing: border-box;
 }
 
-
 body > header {
     height: 30vh;
     min-height: 270px;
     width: 100vw;
     background: #9ddfd3;
+    border-bottom: 1px solid black;
 }
-.page {
-    height: auto;
-}
-    
 
 body > header h1 {
     height: 5vh;
@@ -48,14 +44,14 @@ body > header h1 {
     background: #9ddfd3;
     text-align: center;
     margin-top: 60px;
- 
-
+    font-size: 2.3em;
+}
 
 body > header h3 {
     text-align: center;
+    padding: 1vh 0;
     font-size: 1.5em;
 }
-
 
 body > header .black-bar {
     height: 5vh;
@@ -70,10 +66,9 @@ body > header nav {
     min-height: 65px;
     width: 100vw;
     background: #9ddfd3;
+    border-bottom: 10px solid #1b2021;
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    padding: 5px;
 }
 
 body > header nav a {
@@ -87,18 +82,19 @@ body > header nav div {
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
-    border: 1px solid black;
+    border-right: 3px solid black;
+    border-left: 3px solid black;
     cursor: pointer;
 }
 
 body > main {
     height: auto;
-    background: #D0FEF6;
+    min-height: 60vh;
+    width: 100vw;
+    background: #f3f4ed;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 4vh;
-    padding-right: 4vh;
 }
 
 /* Below is main CSS for index.html/homepage */
@@ -108,17 +104,16 @@ body > main .wrapper {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    /*margin-top: 10vh;*/
+    margin-top: 10vh;
 }
 
 body > main .wrapper h3 {
     font-size: 1.5em;
-    text-align: center;
 }
 
 body > main .wrapper .image {
     width: 90vw;
-    height: 30vh;
+    height: 40vh;
     background: #;
     border: 3px solid #9ddfd3;
 }
@@ -128,9 +123,10 @@ body > main .news {
     height: 20vh;
     min-height: 200px;
     background: #;
-    /*margin: 10vh 0;*/
-    display: flex;
-    flex-direction: row;
+    margin: 10vh 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5vw;
     justify-content: space-between;
 }
 
@@ -166,10 +162,6 @@ body > main .blue-stripe {
     min-height: 400px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: #D0FEF6;
-    border-left: 15px solid #9ddfd3;
-    border-right: 15px solid #9ddfd3;
 }
 
 .register-info,
@@ -179,19 +171,21 @@ body > main .blue-stripe {
     width: 100%;
     background: #;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-
 .register-info h2,
 .login-info h2 {
-    text-align: center;
+    padding-top: 2%;
 }
 
 form {
     height: 70%;
     min-height: 300px;
     width: 100%;
+    background: #;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -199,11 +193,10 @@ form {
 }
 
 form input {
-    /*display: flex;*/
     text-align: center;
     margin-top: 3%;
     width: 30%;
-    height: 10%; 
+    height: 10%;
     min-height: 40px;
     min-width: 300px;
 }
@@ -239,7 +232,6 @@ body > footer .contact-information {
     background: #1b2021;
     opacity: 95%;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     color: white;
@@ -248,8 +240,7 @@ body > footer .contact-information {
 body > footer .contact-information div {
     height: auto;
     width: auto;
-    align-items: flex-start;
-    width: 90vw;
+    text-align: center;
 }
 
 body > footer .contact-information div p:first-child {
