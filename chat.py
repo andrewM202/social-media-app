@@ -16,11 +16,51 @@ bp = Blueprint("chatpage", __name__)
 def chatfunction():
     """ Chat route for social media app """
 
+    # see if user received room connection message already
+    previously_joined = db.execute(f"""
+            SELECT posts
+            FROM userposts
+            WHERE posts = '{current_user} has joined the room!'
+        """).fetchone()
 
     if current_user.is_authenticated:
-        return render_template("chat.html")
+        if previously_joined == None:
+            return render_template("chat.html", previously_joined=False)
+        else:
+            return render_template("chat.html", previously_joined=True)
     
     return redirect("/")
+
+# on connecting to broadcast message, load last x amount of messages
+@socketio.on("connect", namespace="/broadcast-message")
+def test_connect():
+    # query the last 50 messages
+    last_fifty_messages = db.execute(f"""
+            SELECT posts
+            FROM userposts
+            ORDER BY postid DESC
+            LIMIT 250
+        """).fetchall()
+
+    last_fifty_users = db.execute(f"""
+            SELECT username
+            FROM userposts
+            ORDER BY postid DESC
+            LIMIT 250
+        """).fetchall()
+
+    # create a message log to hold messages and user who posted them
+    message_log = []
+
+    # in first value of message log, put value so can check if its message log in javascript
+    message_log.append({"is_message_log": True })
+
+    for row in range(0, len(last_fifty_messages)):
+        # append last x amount of  messages and users as dictionaries into message_log
+        message_log.append({"user": last_fifty_users[row][0], "message": last_fifty_messages[row][0] })
+
+    # send the message log!
+    send(message_log, broadcast=False)
 
 @socketio.on("message", namespace="/broadcast-message")
 def handle_broadcast_message(msg):
@@ -45,7 +85,6 @@ def handle_broadcast_message(msg):
 
     message_details = {"user": newest_user, "message": msg}
     send(message_details,  broadcast=True)
-    #send(msg, latest_user, broadcast=True)
 
 @socketio.on("username-session-id", namespace="/private-message")
 def receieve_username():

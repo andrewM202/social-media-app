@@ -21,6 +21,12 @@
 
 <script type="text/javascript">
     const username = "{{ current_user }}";
+    let previously_in_chatroom;
+    if("{{ previously_joined }}" == "False") {
+        previously_in_chatroom = false;
+    } else {
+        previously_in_chatroom = true;
+    }
 </script>
 
 {% endblock %}
@@ -48,12 +54,13 @@
         <ul id="messages"></ul>
     </div>
     <div class="send-wrapper">
-        <input type="text" id="myMessage" placeholder="Type here..." autofocus/>
+        <input type="text" id="myMessage" placeholder="Type here..." autofocus /> 
         <button id="sendbutton">Send</button>
     </div>
 </main>
 <footer>
-    <div class="light-blue-panel"></div>
+    <div class="light-blue-panel">
+    </div>
     <div class="contact-information">
         <div>
             <p>Created By:</p>

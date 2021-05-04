@@ -49,6 +49,8 @@ class userPostings(db.Model):
     postdate = db.Column(db.DateTime(timezone=True), server_default=func.now())
     # connect the session id to the user id
     sessionid = db.Column(db.String(300))
+    # what room message in
+    
 
     def __init__(self, posts, sessionid, username):
         self.username = username
