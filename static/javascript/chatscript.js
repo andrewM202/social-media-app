@@ -8,8 +8,11 @@ $(document).ready(function () {
     //let socket = io.connect("wss://social-media-app421.herokuapp.com");
     //let socket_broadcast = io.connect("wss://social-media-app421.herokuapp.com/broadcast-message");
 
-    let socket = ("wss://" + document.domain) //+ ":" + location.port)
-    let socket_broadcast = ("wss://" + document.domain + "/broadcast-message") //+ ":" + location.port + "/broadcast-message")
+    //let socket = ("wss://" + document.domain) //+ ":" + location.port)
+    //let socket_broadcast = ("wss://" + document.domain + "/broadcast-message") //+ ":" + location.port + "/broadcast-message")
+
+    let socket = (location.protocol + '//' + document.domain + ':' + location.port)
+    let socket_broadcast = (location.protocol + '//' + document.domain + ':' + location.port)
 
     // socket.on to listen for an event. When the server is started, the connect event fires, which is what is happening below
     
