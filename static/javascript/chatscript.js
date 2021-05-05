@@ -2,8 +2,10 @@ $(document).ready(function () {
 
     // create connection to server, pass url to server
     // create socket object to do stuff with sockets
-    let socket = io.connect("http://127.0.0.1:5000");
-    let socket_broadcast = io.connect("http://127.0.0.1:5000/broadcast-message");
+    //let socket = io.connect("http://127.0.0.1:5000");
+    //let socket_broadcast = io.connect("http://127.0.0.1:5000/broadcast-message");
+    let socket = io.connect("https://social-media-app421.herokuapp.com");
+    let socket_broadcast = io.connect("https://social-media-app421.herokuapp.com/broadcast-message");
 
     // socket.on to listen for an event. When the server is started, the connect event fires, which is what is happening below
     
@@ -85,25 +87,5 @@ $(document).ready(function () {
             $(this).css("box-shadow", "none" )
         });
     });
-
-
-    // namespace is called private-message
-    let socket_private_message = io("http://127.0.0.1:5000/private-message");
-
-    $("#add-private-message-button").on("click", function () {
-        if($("#add-private-message-input").val()[0].length > 0) {
-            // get the private message recipient
-            let recipient = $("#add-private-message-input").val()
-            $("#add-private-message-input").val("");
-
-            // append the chatroom to chatrooms list
-            $(".chatrooms-list > main").append("<h4>" + recipient + "</h4>");
-        }
-    }); 
-
-    $("footer #private-message-button").on("click", function () {
-        $("#add-private-message-div").toggle();
-    });
-
 });
 
