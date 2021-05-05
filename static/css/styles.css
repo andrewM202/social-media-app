@@ -359,6 +359,17 @@ footer .contact-information div p {
 
 /* Above is footer CSS */
 
+/* Below is google and facebook button CSS */
+.buttons {
+  display: flex;
+}
+
+div .g-signin2 {
+  margin-left: 50px;
+
+}
+
+/* Above is google and facebook button CSS */
 
 /* Mobile design for registration page. */
 @media only screen and (max-width: 400px) {
