@@ -8,7 +8,7 @@ $(document).ready(function () {
     //let socket = io.connect("wss://social-media-app421.herokuapp.com");
     //let socket_broadcast = io.connect("wss://social-media-app421.herokuapp.com/broadcast-message");
 
-    let socket = ("wss://" + document.domain + ":" + 443)
+    let socket = ("https://" + document.domain + ":" + 443)
     //let socket_broadcast = ("wss://" + document.domain + "/broadcast-message") //+ ":" + location.port + "/broadcast-message")
 
     //let socket = (location.protocol + '//' + document.domain) // + ':' + location.port)
