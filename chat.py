@@ -32,7 +32,7 @@ def chatfunction():
     return redirect("/")
 
 # on connecting to broadcast message, load last x amount of messages
-@socketio.on("connect", namespace="/broadcast-message")
+@socketio.on("connect")
 def test_connect():
     # query the last 50 messages
     last_fifty_messages = db.execute(f"""
@@ -62,7 +62,7 @@ def test_connect():
     # send the message log!
     send(message_log, broadcast=False)
 
-@socketio.on("message", namespace="/broadcast-message")
+@socketio.on("message")
 def handle_broadcast_message(msg):
     # note: session IDs change each time the user connects to the socket
     # session IDs are only used to identify each time a user connects to the socket
@@ -85,13 +85,4 @@ def handle_broadcast_message(msg):
 
     message_details = {"user": newest_user, "message": msg}
     send(message_details,  broadcast=True)
-
-@socketio.on("username-session-id", namespace="/private-message")
-def receieve_username():
-    # have it retrieve the username with the .last() session id that is the same as the current logged in user
-    print('hi')
-
-
-
-
 

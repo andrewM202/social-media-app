@@ -8,23 +8,22 @@ $(document).ready(function () {
     //let socket = io.connect("wss://social-media-app421.herokuapp.com");
     //let socket_broadcast = io.connect("wss://social-media-app421.herokuapp.com/broadcast-message");
 
-    //let socket = ("wss://" + document.domain) //+ ":" + location.port)
+    let socket = ("wss://" + document.domain) //+ ":" + location.port)
     //let socket_broadcast = ("wss://" + document.domain + "/broadcast-message") //+ ":" + location.port + "/broadcast-message")
 
-    let socket = (location.protocol + '//' + document.domain + ':' + location.port)
-    let socket_broadcast = (location.protocol + '//' + document.domain + ':' + location.port)
+    //let socket = (location.protocol + '//' + document.domain) // + ':' + location.port)
 
     // socket.on to listen for an event. When the server is started, the connect event fires, which is what is happening below
     
-    socket_broadcast.on("connect", function () {
+    socket.on("connect", function () {
         // send "user has connected" message when entering chatroom
         if(previously_in_chatroom == false) {
-            socket_broadcast.send(username + " has joined the room!");
+            socket.send(username + " has joined the room!");
         }
     }); 
 
     // have data to send, so paramter in callback function
-    socket_broadcast.on("message", function (message_details) {
+    socket.on("message", function (message_details) {
         // append whatever the message is to list of messages
         
         // When first connecting, append the last x amount of message
@@ -69,7 +68,7 @@ $(document).ready(function () {
             let key = event.which;
             if(key == 13) {
                 if($("#myMessage").val().length > 0) {
-                    socket_broadcast.send($("#myMessage").val());
+                    socket.send($("#myMessage").val());
                     $("#myMessage").val("");
                 }
             }
@@ -79,7 +78,7 @@ $(document).ready(function () {
         $("#sendbutton").on("click", function () {
             // send only if message has a length
             if($("#myMessage").val().length > 0) {
-                socket_broadcast.send($("#myMessage").val());
+                socket.send($("#myMessage").val());
                 $("#myMessage").val("");
             }
         });
