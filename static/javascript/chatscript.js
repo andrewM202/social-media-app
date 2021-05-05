@@ -5,11 +5,11 @@ $(document).ready(function () {
     //let socket = io.connect("http://127.0.0.1:5000");
     //let socket_broadcast = io.connect("http://127.0.0.1:5000/broadcast-message");
     //http://' + document.domain + ':' + location.port + namespace
-    let socket = io.connect("wss://social-media-app421.herokuapp.com");
-    let socket_broadcast = io.connect("wss://social-media-app421.herokuapp.com/broadcast-message");
+    //let socket = io.connect("wss://social-media-app421.herokuapp.com");
+    //let socket_broadcast = io.connect("wss://social-media-app421.herokuapp.com/broadcast-message");
 
-    //let socket = ("https://" + document.domain + ":" + location.port)
-    //let socket_broadcast = ("https://" + document.domain + ":" + location.port + "/broadcast-message")
+    let socket = ("wss://" + document.domain + ":" + location.port)
+    let socket_broadcast = ("wss://" + document.domain + ":" + location.port + "/broadcast-message")
 
     // socket.on to listen for an event. When the server is started, the connect event fires, which is what is happening below
     
