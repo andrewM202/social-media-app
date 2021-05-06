@@ -6,6 +6,10 @@ Light mode colors:
 
 Dark mode colors:
     #444F4D
+
+
+NOTE: the ---- after a comment-in thing means I have to delete it later.
+
 */
 
 *, *:before, *:after {
@@ -14,7 +18,23 @@ Dark mode colors:
     box-sizing: border-box;
 }
 
-.page {
+
+#page {
+    --text-color: "black";
+    --background-color: #D0FEF6;
+    --header-color: #9ddfd3;
+    --bar-color: #1b2021;
+}
+
+
+#page.dark-mode {
+    --text-color: #7FF8FF;
+    --background-color: #003538;
+    --header-color: #005257;
+}
+
+
+#page {
     height: auto;
 }
 
@@ -23,12 +43,12 @@ header {
     flex-direction: column;
     align-content: space-around;
     height: 30vh;
-    background: #9ddfd3;
+    background: var(--header-color);
 }
 
-/*header .login-banner*/ h1 {
+h1 {
     text-align: center;
-    background: #9ddfd3;
+    background: var(--header-color);
     font-size: 2.3em;
     height: 15vh;
     padding-top: 2vh;
@@ -43,14 +63,14 @@ header .black-bar {
     display: flex;
     height: 5vh;
     width: auto;
-    background: #1b2021;
+    background: var(--bar-color);
     opacity: 85%;
 }
 
 header nav {
     height: 15vh;
     width: auto;
-    background: #9ddfd3;
+    background: var(--header-color);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -75,7 +95,7 @@ header nav > a {
 
 main {
     height: auto;
-    background: #D0FEF6;
+    background: var(--background-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,7 +110,6 @@ main .wrapper {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    /*margin-top: 10vh;*/
 }
 
 main .wrapper h3 {
@@ -104,14 +123,13 @@ main .wrapper .image {
     width: 90vw;
     height: 30vh;
     background: #;
-    border: 3px solid #9ddfd3;
+    border: 3px solid var(--header-color);
 }
 
 main .news {
     width: 90vw;
     height: 30vh;
     background: #;
-    /*margin: 10vh 0;*/
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -120,7 +138,7 @@ main .news {
 #newsDiv1, #newsDiv2 {
     display: flex;
     width: 42vw;
-    border: 3px solid #9ddfd3;
+    border: 3px solid var(--header-color);
 }
 
 /* Above is main CSS for index.html/homepage */
@@ -139,14 +157,13 @@ main .registration, main .login {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #D0FEF6;
-    border-left: 15px solid #9ddfd3;
-    border-right: 15px solid #9ddfd3;
+    background-color: var(--background-color);
+    border-left: var(--header-color);
+    border-right: var(--header-color);
 }
 
 .register-info, .login-info {
     height: 15vh;
-    background: #;
     display: flex;
     align-items: center;
 }
@@ -167,7 +184,6 @@ form {
 }
 
 form input {
-    /*display: flex;*/
     text-align: center;
     margin-top: 3%;
     width: 40%;
@@ -185,14 +201,12 @@ footer {
 footer .light-blue-panel {
     display: flex;
     height: 8vh;
-    background: #9ddfd3;
-    /*border-top: 1px solid black;
-    border-bottom: 1px solid black;*/
+    background: var(--header-color);
 }
 
 footer .contact-information {
     height: 100%;
-    background: #1b2021;
+    background: var(--bar-color);
     opacity: 95%;
     display: flex;
     flex-direction: column;
@@ -218,6 +232,10 @@ footer .contact-information div {
     right: 0;
 }
 
+a {
+    color: var(--text-color);
+}
+
 /* Above is footer CSS */
 
 
@@ -230,10 +248,6 @@ footer .contact-information div {
         text-align: center;
     }
 
-    body {
-        /*width: 100vw;*/
-    }
-
     header {
         height: 40vh;
         min-height: 230px;
@@ -242,7 +256,7 @@ footer .contact-information div {
     header .black-bar {
         height: 2vh;
         width: 100vw;
-        background: #1b2021;
+        background: var(--bar-color);
         opacity: 85%;
     }
 
@@ -250,7 +264,7 @@ footer .contact-information div {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #9ddfd3;
+        background: var(--header-color);
         min-height: 70px;
     }
 
@@ -286,20 +300,10 @@ footer .contact-information div {
         height: 20%;
     }
 
-    footer {
-        /*height: 30vh;*/
-    }
-
     footer .light-blue-panel {
-        /*height: 5vh;
-        width: 100vw;*/
-        background: #9ddfd3;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-    }
-
-    footer .contact-information {
-        /*height: 25vh;*/
+        background: var(--header-color);
+        border-top: 1px solid var(--text-color);
+        border-bottom: 1px solid var(--text-color);
     }
 
     footer .contact-information div p {

@@ -5,10 +5,9 @@
 {% endblock %}
 
 {% block body %}
-<div class="page">
-
+<div id="page" class="dark-mode || light-mode">
 <header>
-    <div class="black-bar"></div> <!-- ** Figure out why these bars are thinner than the ones on other pages! ** -->
+    <div class="black-bar" id="blackBar1"></div> <!-- ** Figure out why these bars are thinner than the ones on other pages! ** -->
     <nav>
         <!-- If not logged in, show the login button -->
         {% if not loggedin %}
@@ -32,7 +31,7 @@
         {% endif %}
     </nav>
 
-    <div class="black-bar"></div> <!-- ** Figure out why these bars are thinner than the ones on other pages! ** -->
+    <div class="black-bar" id="blackBar2"></div> <!-- ** Figure out why these bars are thinner than the ones on other pages! ** -->
     <div class="login-banner">
         <h1>Social Media App</h1>
     </div>
@@ -75,7 +74,6 @@
     </div>
 
 </footer>
-
 </div>
 
 

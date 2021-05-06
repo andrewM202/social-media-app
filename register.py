@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, make_response
 from models import db, userInformation
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2

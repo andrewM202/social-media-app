@@ -2,6 +2,10 @@
 
 let darkModeButton = document.querySelector(".dark-mode-button");
 
+//let theThing = document.getElementById("#page");
+
+/*----
+//let currentTheme = localStorage.getItem("theme");
 let darkMode = false;
 
 // the pale blue things
@@ -20,16 +24,21 @@ let wrapAccount = document.querySelector(".wrap.account"); // border-left + bord
 let footerPanel = document.querySelector("footer .light-blue-panel");
 
 // the black/grey things
-let headerBlackBar = document.querySelector("header .black-bar");
+let headerBlackBar1 = document.querySelector("#blackBar1");
+let headerBlackBar2 = document.querySelector("#blackBar2");
 let footerContactInfo = document.querySelector("footer .contact-information");
 let headerNavA1 = document.querySelector("#nav1");
 let headerNavA2 = document.querySelector("#nav2");
 
 
 const darkModeSwitch = function() {
-    if (darkMode == false) {
-        darkModeButton.innerHTML = "turn on light mode";
-    
+    //document.body.classList.toggle("dark-mode");
+
+    if (darkMode == false/*currentTheme == "light"*//*----) {*----/
+/*----
+        headerBlackBar1.style.backgroundColor = "#7FF8FF";
+        headerBlackBar2.style.backgroundColor = "#7FF8FF";
+
         headerNavA1.style.border = "1px solid #7FF8FF";
         headerNavA2.style.border = "1px solid #7FF8FF";
 
@@ -47,20 +56,55 @@ const darkModeSwitch = function() {
         image.style.border = "3px solid #005257";
         newsDiv1.style.border = "3px solid #005257";
         newsDiv2.style.border = "3px solid #005257";
-        wrapAccount.style.backgroundColor = "#005257";
-        footerPanel.style.backgroundColor = "#005257";
-        
+        //wrapAccount.style.backgroundColor = "#005257";
+        //footerPanel.style.backgroundColor = "#005257";
 
+
+        //localStorage.setItem("theme", "dark");
+        darkModeButton.innerHTML = "turn on light mode";
         darkMode = true;
-        sessionStorage.setItem("darkMode", "true");
-    } else {
-        darkModeButton.innerHTML = "turn on dark mode"
+    } else if (darkMode == true/*currentTheme == "dark"*//*----) {*----/
+/*----
+        headerBlackBar1.style.backgroundColor = "#1b2021";
+        headerBlackBar2.style.backgroundColor = "#1b2021";
 
         main.style.backgroundColor = "#D0FEF6";
 
+        headerNavA1.style.border = "1px solid black";
+        headerNavA2.style.border = "1px solid black";
+        headerNavA1.style.color = "black";
+        headerNavA2.style.color = "black";
+
+        h1.style.color = "black";
+        h3.style.color = "black";
+
+        header.style.backgroundColor = "#9ddfd3";
+        h1.style.backgroundColor = "#9ddfd3";
+        nav.style.backgroundColor = "#9ddfd3";
+        image.style.border = "3px solid #9ddfd3";
+        newsDiv1.style.border = "3px solid #9ddfd3";
+        newsDiv2.style.border = "3px solid #9ddfd3";
+        //wrapAccount.style.backgroundColor = "#9ddfd3";
+        //footerPanel.style.backgroundColor = "#9ddfd3";
+
+        //localStorage.setItem("theme", "light");
+        darkModeButton.innerHTML = "turn on dark mode";
         darkMode = false;
     }
 }
+----*/
 
+/*
+let darkModeSwitch = function() {
+    let page = document.getElementById("#page");
 
-darkModeButton.addEventListener("click", darkModeSwitch);
+    document.page.classList.toggle("dark-mode");
+}
+*/
+
+darkModeButton.addEventListener("click", function() {
+
+    page.classList.toggle("dark-mode");
+
+    console.log("did");
+});
