@@ -20,10 +20,12 @@ NOTE: the ---- after a comment-in thing means I have to delete it later.
 
 
 #page {
-    --text-color: "black";
+    --text-color: #000000;
     --background-color: #D0FEF6;
     --header-color: #9ddfd3;
     --bar-color: #1b2021;
+    --input-bg: #F7F7F7;
+    --input-text: #323232;
 }
 
 
@@ -31,6 +33,9 @@ NOTE: the ---- after a comment-in thing means I have to delete it later.
     --text-color: #7FF8FF;
     --background-color: #003538;
     --header-color: #005257;
+    --bar-color: #D8FDFF;
+    --input-bg: #282828;
+    --input-text: #D9D9D9;
 }
 
 
@@ -52,11 +57,17 @@ h1 {
     font-size: 2.3em;
     height: 15vh;
     padding-top: 2vh;
+    color: var(--text-color);
+}
+
+h2 {
+    color: var(--text-color);
 }
 
 header .login-banner h3 {
     text-align: center;
     font-size: 1.5em;
+    color: var(--text-color);
 }
 
 header .black-bar {
@@ -85,7 +96,7 @@ header nav > a {
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
-    border: 1px solid black;
+    border: 1px solid var(--text-color);
     cursor: pointer;
 }
 
@@ -115,6 +126,7 @@ main .wrapper {
 main .wrapper h3 {
     font-size: 1.5em;
     text-align: center;
+    color: var(--text-color);
 }
 
 main .wrapper .image {
@@ -141,6 +153,7 @@ main .news {
     border: 3px solid var(--header-color);
 }
 
+
 /* Above is main CSS for index.html/homepage */
 
 /* Below is main CSS for registration.html */
@@ -166,6 +179,7 @@ main .registration, main .login {
     height: 15vh;
     display: flex;
     align-items: center;
+    color: var(--text-color);
 }
 
 
@@ -183,12 +197,19 @@ form {
     align-items: center;
 }
 
-form input {
+form > input {
+    background-color: var(--input-bg);
+    color: var(--input-text);
     text-align: center;
     margin-top: 3%;
     width: 40%;
     height: 15%;
-}
+}  
+
+input[type=text]:focus {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+  }
 
 /* Above is main CSS for registration.html */
 
@@ -206,13 +227,13 @@ footer .light-blue-panel {
 
 footer .contact-information {
     height: 100%;
-    background: var(--bar-color);
+    background: #001D1F;
     opacity: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    color: white;
+    color: #D0FEF6;
 }
 
 footer .contact-information div {

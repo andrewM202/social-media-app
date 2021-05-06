@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-<div id="page" class="dark-mode || light-mode">
+<div id="page" class="light-mode || dark-mode">
 <header>
     <div class="black-bar"></div>
     <nav>
@@ -64,6 +64,6 @@
 </footer>
 </div>
 
-<button class = "dark-mode-button">turn on dark mode</button>   
+<button class = "dark-mode-button">toggle theme</button>
 <script src="{{ url_for('static', filename='darkModeScript.js') }}"></script>
 {% endblock %}

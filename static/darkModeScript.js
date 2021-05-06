@@ -102,9 +102,35 @@ let darkModeSwitch = function() {
 }
 */
 
+let currentTheme;
+
 darkModeButton.addEventListener("click", function() {
 
     page.classList.toggle("dark-mode");
 
-    console.log("did");
+    if (page.classList.length == 2) {
+
+        currentTheme = "light";
+        console.log(currentTheme);
+
+    } else if (page.classList.length == 3) {
+
+        currentTheme = "dark";
+        console.log(currentTheme);
+        
+    }
+
+    /*
+    // begin TEST code
+    if (page.classList.contains("dark-mode")) { // dark mode has been selected
+        document.page.setAttribute('data-theme', 'dark');
+        localStorage.setItem('themeSwitch', 'dark'); // save theme selection 
+    } else {
+        document.body.removeAttribute('data-theme');
+        localStorage.removeItem('themeSwitch'); // reset theme selection 
+      } 
+    }
+    // end TEST code
+    */
+
 });

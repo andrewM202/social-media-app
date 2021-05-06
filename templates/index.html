@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-<div id="page" class="dark-mode || light-mode">
+<div id="page" class="light-mode || dark-mode">
 <header>
     <div class="black-bar" id="blackBar1"></div> <!-- ** Figure out why these bars are thinner than the ones on other pages! ** -->
     <nav>
@@ -77,7 +77,7 @@
 </div>
 
 
-<button class = "dark-mode-button">turn on dark mode</button>
+<button class = "dark-mode-button">toggle theme</button>
 
 <script src="{{ url_for('static', filename='darkModeScript.js') }}"></script>
 {% endblock %}
