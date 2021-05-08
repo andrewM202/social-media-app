@@ -29,7 +29,7 @@ $(document).ready(function () {
         message_log_length = Object.keys(message_log).length - 1;
         //create user's message
         // loop through all messages given
-        for(let x = message_log_length; x > 0; x--) {
+        for(let x = message_log_length; x >= 0; x--) {
             if(message_log[x].user == username) {
                 $("#messages").append("<li></li>");
                 let user_message_details = document.createTextNode(message_log[x].user)
