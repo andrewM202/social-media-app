@@ -387,7 +387,7 @@ body > main .message-wrapper ul li {
     font-size: 1.3em;
     border-radius: 15px;
     width: 52%;
-    overflow-wrap: normal;
+    word-break: break-all;
     align-self: flex-start;
 }
 
@@ -528,12 +528,6 @@ body > main .send-wrapper button {
         flex-direction: column;
         min-height: 230px;
         height: auto;
-    }
-
-    body > main div > h3 {
-        font-size: 0.9em;
-        width: 85vw;
-        text-align: center;
     }
 
     body > main .news {
