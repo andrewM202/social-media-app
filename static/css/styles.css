@@ -34,7 +34,7 @@ body > header {
     min-height: 270px;
     width: 100vw;
     background: #9ddfd3;
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid black;
 }
 
 body > header h1 {
@@ -91,7 +91,8 @@ body > main {
     height: auto;
     min-height: 60vh;
     width: 100vw;
-    background: #D0FEF6;
+    background: white;
+    /*background: #D0FEF6;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -394,6 +395,17 @@ body > main .message-wrapper ul li h3 {
     padding-bottom: 15px;
 }
 
+body > main .message-wrapper ul li div {
+    display: flex;
+    justify-content: space-between;
+}
+
+body > main .message-wrapper ul li button {
+    padding: 0 5px;
+    background: white;
+    cursor: pointer;
+    border-radius: 15px;
+}
 
 body > main .send-wrapper input[type="text"] {
     width: 100%;

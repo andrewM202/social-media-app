@@ -1,6 +1,6 @@
 from flask import Blueprint, request, Flask, render_template, redirect
 from flask_login import current_user
-from flask_socketio import SocketIO, send 
+from flask_socketio import SocketIO, send, emit 
 from models import db, userInformation, userPostings, login
 from app import socketio
 import datetime
@@ -34,6 +34,10 @@ def chatfunction():
 # on connecting to broadcast message, load last x amount of messages
 @socketio.on("connect")
 def test_connect():
+    """ stuff here eventually """
+
+@socketio.on("load_messages")
+def load_messages():
     # query the last 50 messages
     last_fifty_messages = db.execute(f"""
             SELECT posts
@@ -49,18 +53,35 @@ def test_connect():
             LIMIT 250
         """).fetchall()
 
+    last_fifty_postids = db.execute(f"""
+            SELECT postid
+            FROM userposts
+            ORDER BY postid DESC
+            LIMIT 250
+        """).fetchall()
+
     # create a message log to hold messages and user who posted them
     message_log = []
 
-    # in first value of message log, put value so can check if its message log in javascript
-    message_log.append({"is_message_log": True })
-
     for row in range(0, len(last_fifty_messages)):
         # append last x amount of  messages and users as dictionaries into message_log
-        message_log.append({"user": last_fifty_users[row][0], "message": last_fifty_messages[row][0] })
+        message_log.append({"user": last_fifty_users[row][0], "message": last_fifty_messages[row][0], "postid": last_fifty_postids[row][0] })
 
     # send the message log!
-    send(message_log, broadcast=False)
+    emit('load messages', message_log, broadcast=False)
+
+@socketio.on("delete_message")
+def delete_message(msg_details):
+    # msg_details contains {"username": username, "message": message}
+    db.execute(f"""
+            DELETE
+            FROM userposts
+            WHERE postid = '{msg_details.get("postid")}'
+        """)
+
+    other_users_delete = msg_details.get("postid")
+    emit('delete message', other_users_delete, broadcast=True)
+    
 
 @socketio.on("message")
 def handle_broadcast_message(msg):
@@ -84,5 +105,5 @@ def handle_broadcast_message(msg):
     newest_user = latest_user.first()[0]
 
     message_details = {"user": newest_user, "message": msg}
-    send(message_details,  broadcast=True)
+    send(message_details, broadcast=True)
 
