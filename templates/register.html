@@ -28,7 +28,9 @@
         <div class="blue-stripe"></div>
         <div class="wrap account">
             <div class="register-info">
-                <h3>Enter your information below.</h3>
+                {% if not success %}
+                    <h3>Enter your information below.</h3>
+                {% endif %}
                 {% if error %}
                     <h2>{{ error }}</h2>
                 {% endif %}

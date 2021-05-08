@@ -30,23 +30,28 @@ $(document).ready(function () {
         //create user's message
         // loop through all messages given
         for(let x = message_log_length; x >= 0; x--) {
+            // if the post is from the current user
             if(message_log[x].user == username) {
                 $("#messages").append("<li></li>");
                 let user_message_details = document.createTextNode(message_log[x].user)
                 let message_message_details = document.createTextNode(message_log[x].message)
+                let postdate_message_details = document.createTextNode(message_log[x].postdate)
                 // if its a joined the room message, don't allow delete button
                 if(message_log[x].message.indexOf("has joined the room!") == -1 ) {
-                    $("li:last").css({"align-self": "flex-start", "background": "#8ab6d6"}).html("<div><h3></h3><button>Delete Message</button></div><p></p>")
+                    $("li:last").css({"align-self": "flex-start", "background": "#8ab6d6"}).html("<div><div><h3></h3><time></time></div><button>Delete Message</button></div><p></p>")
                 } else {
-                    $("li:last").css({"align-self": "flex-start", "background": "#8ab6d6"}).html("<div><h3></h3></div><p></p>")
+                    $("li:last").css({"align-self": "flex-start", "background": "#8ab6d6"}).html("<div><div><h3></h3><time></time></div></div><p></p>")
                 }
+                document.querySelector("li:last-child").querySelector("time").appendChild(postdate_message_details)
                 document.querySelector("li:last-child").querySelector("h3").appendChild(user_message_details)
                 document.querySelector("li:last-child").querySelector("p").appendChild(message_message_details)
             } else { // if user of the message is different user than current logged in one, add flex-end
                 $("#messages").append("<li></li>");
-                $("li:last").css("align-self", "flex-end").html("<div><h3></h3></div><p></p>")
+                $("li:last").css("align-self", "flex-end").html("<div><div><h3></h3><time></time></div></div><p></p>")
                 let user_message_details = document.createTextNode(message_log[x].user)
                 let message_message_details = document.createTextNode(message_log[x].message)
+                let postdate_message_details = document.createTextNode(message_log[x].postdate)
+                document.querySelector("li:last-child").querySelector("time").appendChild(postdate_message_details)
                 document.querySelector("li:last-child").querySelector("h3").appendChild(user_message_details)
                 document.querySelector("li:last-child").querySelector("p").appendChild(message_message_details)
             }
@@ -100,16 +105,29 @@ $(document).ready(function () {
     socket.on("message", function (message_details) {
         // append whatever the message is to list of messages
         let prevPostId = parseInt($("li:last").attr("postid"))
-      
+    
         // add the message to the HTML
-        $("#messages").append("<li></li>");
-        $("li:last").css({"align-self": "flex-start", "background": "#8ab6d6"}).html("<div><h3></h3><button>Delete Message</button></div><p></p>")
-        let user = document.createTextNode(username)
-        let msg = document.createTextNode(message_details.message)
-        document.querySelector("li:last-child").querySelector("h3").appendChild(user)
-        document.querySelector("li:last-child").querySelector("p").appendChild(msg)
-        // set the postid of the just created message
-        $("li:last").attr("postid", prevPostId+1)
+        if(message_details.user == username) {
+            $("#messages").append("<li></li>");
+            $("li:last").css({"align-self": "flex-start", "background": "#8ab6d6"}).html("<div><div><h3></h3><time></time></div><button>Delete Message</button></div><p></p>")
+            let user = document.createTextNode(message_details.user)
+            let msg = document.createTextNode(message_details.message)
+            let postdate = document.createTextNode(message_details.postdate)
+            document.querySelector("li:last-child").querySelector("time").appendChild(postdate)
+            document.querySelector("li:last-child").querySelector("h3").appendChild(user)
+            document.querySelector("li:last-child").querySelector("p").appendChild(msg)
+            // set the postid of the just created message if its current client
+            $("li:last").attr("postid", prevPostId+1)
+        } else {
+            $("#messages").append("<li></li>");
+            $("li:last").css("align-self", "flex-end").html("<div><div><h3></h3><time></time></div></div><p></p>")
+            let user = document.createTextNode(message_details.user)
+            let msg = document.createTextNode(message_details.message)
+            let postdate = document.createTextNode(message_details.postdate)
+            document.querySelector("li:last-child").querySelector("time").appendChild(postdate)
+            document.querySelector("li:last-child").querySelector("h3").appendChild(user)
+            document.querySelector("li:last-child").querySelector("p").appendChild(msg)
+        }
 
         // Have the latest message scroll into view if it exists
         if($("li:last")[0] !== undefined) {

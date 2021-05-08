@@ -393,6 +393,7 @@ body > main .message-wrapper ul li {
 
 body > main .message-wrapper ul li h3 {
     padding-bottom: 15px;
+    margin-right: 15px;
 }
 
 body > main .message-wrapper ul li div {

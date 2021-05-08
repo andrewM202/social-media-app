@@ -64,7 +64,7 @@ class userPostings(db.Model):
     # store the actual post itself
     posts = db.Column(db.String(5000))
     # get the post's date so we can know when the post was made
-    postdate = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    postdate = db.Column(db.Time(), server_default=func.now())
     # connect the session id to the user id
     sessionid = db.Column(db.String(300))
     # what room message in
