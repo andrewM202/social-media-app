@@ -86,25 +86,57 @@ def load_messages():
     emit('load messages', message_log, broadcast=False)
 
 @socketio.on("add_like")
-def add_like(postid):
+def add_like(postinfo):
     # add like to a post
 
-    # increase number of likes by 1
-    db.execute(f"""
-        UPDATE userposts
-        SET likes = (likes + 1)
-        WHERE postid = {postid.get("postid")}
-    """)
+    # check if user already liked, and if so, don't add again, but delete the like
+    already_liked = db.execute(f"""
+        SELECT likinguser
+        FROM likememory
+        WHERE postid = {postinfo.get("postid")} AND 
+        likinguser = '{postinfo.get("username")}'
+    """).fetchone()
+    
+    print(postinfo.get("username"))
+    print(already_liked)
+    if already_liked == None:
+        # add like into likememory and increase value in userposts
+        db.execute(f"""
+            INSERT INTO likememory (postid, likinguser)
+            VALUES ('{postinfo.get("postid")}', '{postinfo.get("username")}' )
+        """)
+
+        # increase number of likes by 1
+        db.execute(f"""
+            UPDATE userposts
+            SET likes = (likes + 1)
+            WHERE postid = {postinfo.get("postid")}
+        """)
+    else:
+        # remove like from likememory if its already in, and decrease amount of likes by 1
+        db.execute(f"""
+            DELETE FROM
+            likememory
+            WHERE postid = {postinfo.get("postid")} AND
+            likinguser = '{postinfo.get("username")}'
+        """)
+
+        db.execute(f"""
+            UPDATE userposts
+            SET likes = (likes - 1)
+            WHERE postid = {postinfo.get("postid")}
+        """)
+
 
     # get new total amount of likes
     likes_amount = db.execute(f"""
         SELECT likes
         FROM userposts
-        WHERE postid = {postid.get("postid")}
+        WHERE postid = {postinfo.get("postid")}
     """)
 
     likes_amount = int(likes_amount.first()[0])
-    likes_info = {"likes": likes_amount, "postid": postid.get("postid")}
+    likes_info = {"likes": likes_amount, "postid": postinfo.get("postid")}
 
     # update JS
     emit('add like', likes_info, broadcast=True)

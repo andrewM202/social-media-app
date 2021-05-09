@@ -76,5 +76,22 @@ class userPostings(db.Model):
         self.sessionid = sessionid
 
     def __repr__(self):
-        return f"{self.posts}:{self.postdate}"
+        return f"{self.posts}:{self.sessionid}:{self.username}"
 
+
+# to keep track of who already liked each post
+class likeMemories(db.Model):
+    __tablename__ = 'likememory'
+
+    # random primary key because needed to make table
+    likeid = db.Column(db.BigInteger, primary_key=True)
+    # id of the liked post
+    postid = db.Column(db.Numeric, nullable=False)
+    # person who liked the post
+    likinguser = db.Column(db.String(20), nullable=False)
+
+    def __init__(self, likinguser):
+        self.likinguser = likinguser
+
+    def __repr__(self):
+        return f"{self.likinguser}"

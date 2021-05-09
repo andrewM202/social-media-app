@@ -83,14 +83,14 @@ $(document).ready(function () {
             // add like event listener to each like button
             $("li:last .like-button").click(function() {
                 $(this).parent().parent().parent().parent().children("h5").text("")
-                post_info = {"postid": message_log[x].postid}
+                post_info = {"postid": message_log[x].postid, "username": String(username)}
                 socket.emit("add_like", post_info)
             });
 
             // emoji like event listener
             $("li:last h5").click(function() {
                 $(this).text("")
-                post_info = {"postid": message_log[x].postid}
+                post_info = {"postid": message_log[x].postid, "username": String(username)}
                 socket.emit("add_like", post_info)
             });
 
@@ -197,14 +197,14 @@ $(document).ready(function () {
         // like button event listener
         $("li:last .like-button").click(function() {
             $(this).parent().parent().parent().parent().children("h5").text("")
-            post_info = {"postid": message_details.postid}
+            post_info = {"postid": message_details.postid, "username": String(username)}
             socket.emit("add_like", post_info)
         });
 
         // emoji like event listener 
         $("li:last h5").click(function() {
             $(this).text("")
-            post_info = {"postid": message_details.postid}
+            post_info = {"postid": message_details.postid, "username": String(username)}
             socket.emit("add_like", post_info)
         });
     });
