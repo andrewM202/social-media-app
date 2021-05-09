@@ -226,7 +226,6 @@ $(document).ready(function () {
                     count++;
                 }
             }
-            console.log(count)
             if(count > 1) {
                 let postid = Number(postiden)
                 $("#messages").find(`[postid=${postid}]`).first().remove()
