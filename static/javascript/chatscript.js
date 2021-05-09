@@ -12,12 +12,12 @@ $(document).ready(function () {
     var socket = io.connect(ws_scheme + location.host);
     
     socket.on("connect", function () {
+        // load messages
+        socket.emit("load_messages")
         // send "user has connected" message when entering chatroom
         if(previously_in_chatroom == false) {
             socket.send(username + " has joined the room!");
         }
-        // load messages
-        socket.emit("load_messages")
     });
 
     socket.on("add like", function(likes_info) {
@@ -136,8 +136,6 @@ $(document).ready(function () {
     // have data to send, so paramter in callback function
     socket.on("message", function (message_details) {
         // append whatever the message is to list of messages
-
-        // add the message to the HTML
         if(message_details.user == username) {
             $("#messages").append("<li></li>");
             $("li:last").css({"align-self": "flex-start", "background": "#8ab6d6"}).html(`<div><div><h3></h3><time></time></div><div class='settings'>&#1422;</div></div><p></p><h5>${message_details.likes} &#x1F44D;</h5>`)
@@ -208,87 +206,6 @@ $(document).ready(function () {
             socket.emit("add_like", post_info)
         });
 
-        // call to remove duplicate join messages
-        removeDuplicate(message_details.postid)
-        function removeDuplicate(postid) {
-            if($("#messages").find(`[postid=${postid}]`).children("p").first().text() == (username + " has joined the room!")) {
-                $("#messages").find(`[postid=${postid}]`).remove()
-            }
-            if($("#messages").find(`[postid=${postid}]`).length == 0) {
-               $("#messages").append("<li></li>");
-                $("li:last").css({"align-self": "flex-start", "background": "#8ab6d6"}).html(`<div><div><h3></h3><time></time></div><div class='settings'>&#1422;</div></div><p></p><h5>${message_details.likes} &#x1F44D;</h5>`)
-                $("li:last .settings").append("<div class='settings-list-right'><button class='like-button'>Add Like</button></div>")
-                $("li:last .settings-list-right").hide()
-                let user = document.createTextNode(message_details.user)
-                let message = document.createTextNode(message_details.message)
-                let postdate = document.createTextNode(message_details.postdate)
-                document.querySelector("li:last-child").querySelector("time").appendChild(postdate)
-                document.querySelector("li:last-child").querySelector("h3").appendChild(user)
-                document.querySelector("li:last-child").querySelector("p").appendChild(message)
-                // set the postid of the just created message if its current client
-                $("li:last").attr("postid", message_details.postid)
-                // Have the latest message scroll into view if it exists
-                if($("li:last")[0] !== undefined) {
-                    $("li:last")[0].scrollIntoView({block: "nearest"});
-                }
-
-                // create event listener to make chat li glow when scrolled over
-                $("#messages li").on("mouseenter", function() {
-                    $(this).css("box-shadow", "0px 16px 24px 2px rgba(0,0,0,0.14) , 0px 6px 30px 5px rgba(0,0,0,0.12) , 0px 8px 10px -7px rgba(0,0,0,0.2)" )
-                });
-
-                // remove box shadow when leaving chat li
-                $("#messages li").on("mouseleave", function() {
-                    $(this).css("box-shadow", "none" )
-                });
-
-                 // add settings button event listener
-                $("li:last .settings").click(function() {
-                    $(this).children().toggle()
-                });
-
-                // like button event listener
-                $("li:last .like-button").click(function() {
-                    $(this).parent().parent().parent().parent().children("h5").text("")
-                    post_info = {"postid": message_details.postid, "username": String(username)}
-                    socket.emit("add_like", post_info)
-                });
-
-                // emoji like event listener
-                $("li:last h5").click(function() {
-                    $(this).text("")
-                    post_info = {"postid": message_details.postid, "username": String(username)}
-                    socket.emit("add_like", post_info)
-                });
-            }
-        }
-        
-        /*
-        removeDuplicate(message_details.postid)
-        
-
-        function removeDuplicate(postiden) {
-            let count = 0
-            for(let i = 0; i < 2; i++) {
-                let postid = Number(postiden)
-                let message = $("#messages").find(`[postid=${postid}]`)
-                console.log($("#messages").find(`[postid=${postid}]`).children("p").text() == (username + " has joined the room!"))
-                if(count == 0) {
-                    if(message.length > 0 && $("#messages").find(`[postid=${postid}]`).children("p").first().text() == (username + " has joined the room!")) {
-                        count++;
-                    }
-                } else if(count == 1) {
-                    if(message.length > 0 && $("#messages").find(`[postid=${postid}]`).children("p").last().text() == (username + " has joined the room!")) {
-                        count++;
-                    }
-                }
-                if(count > 1) {
-                    let postid = Number(postiden)
-                    $("#messages").find(`[postid=${postid}]`).first().remove()
-                }
-            }
-        }
-        */
     });
 
 });
