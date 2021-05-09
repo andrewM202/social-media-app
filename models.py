@@ -67,8 +67,8 @@ class userPostings(db.Model):
     postdate = db.Column(db.Time(), server_default=func.now())
     # connect the session id to the user id
     sessionid = db.Column(db.String(300))
-    # what room message in
-    
+    # amount of likes on post
+    likes = db.Column(db.Numeric, nullable=False, default=0)
 
     def __init__(self, posts, sessionid, username):
         self.username = username

@@ -68,19 +68,50 @@ def load_messages():
         LIMIT 250
     """).fetchall()
 
+    last_likes = db.execute(f"""
+        SELECT likes
+        FROM userposts
+        ORDER BY postid DESC
+        LIMIT 250
+    """).fetchall()
+
     # create a message log to hold messages and user who posted them
     message_log = []
 
     for row in range(0, len(last_messages)):
         # append last x amount of  messages and users as dictionaries into message_log
-        message_log.append({"user": last_users[row][0], "message": last_messages[row][0], "postid": last_postids[row][0], "postdate": str(last_postdates[row][0])[0:5] })
+        message_log.append({"user": last_users[row][0], "message": last_messages[row][0], "postid": last_postids[row][0], "postdate": str(last_postdates[row][0])[0:5], "likes": int(last_likes[row][0]) })
 
     # send the message log!
     emit('load messages', message_log, broadcast=False)
 
+@socketio.on("add_like")
+def add_like(postid):
+    # add like to a post
+
+    # increase number of likes by 1
+    db.execute(f"""
+        UPDATE userposts
+        SET likes = (likes + 1)
+        WHERE postid = {postid.get("postid")}
+    """)
+
+    # get new total amount of likes
+    likes_amount = db.execute(f"""
+        SELECT likes
+        FROM userposts
+        WHERE postid = {postid.get("postid")}
+    """)
+
+    likes_amount = int(likes_amount.first()[0])
+    likes_info = {"likes": likes_amount, "postid": postid.get("postid")}
+
+    # update JS
+    emit('add like', likes_info, broadcast=True)
+
 @socketio.on("delete_message")
 def delete_message(msg_details):
-    # msg_details contains {"username": username, "message": message}
+    # msg_details just contains postid
     db.execute(f"""
         DELETE
         FROM userposts
@@ -99,8 +130,8 @@ def handle_broadcast_message(msg):
     # add the user post to the database
     if len(msg) > 0:
         db.execute(f"""
-        INSERT INTO userposts (username, posts, sessionid) 
-        VALUES ('{current_user.username}', '{msg}', '{request.sid}')
+        INSERT INTO userposts (username, posts, sessionid, likes) 
+        VALUES ('{current_user.username}', '{msg}', '{request.sid}', '0')
     """)
 
     latest_user = db.execute(f"""
@@ -117,9 +148,25 @@ def handle_broadcast_message(msg):
         LIMIT 1
     """)
 
+    latest_post_id = db.execute(f"""
+        SELECT postid
+        FROM userposts
+        ORDER BY postid DESC
+        LIMIT 1
+    """)
+
+    latest_post_likes = db.execute(f"""
+        SELECT likes
+        FROM userposts
+        ORDER BY postid DESC
+        LIMIT 1
+    """)
+
     newest_user = latest_user.first()[0]
     newest_postdate = str(latest_post_date.first()[0])[0:5]
+    newest_postid = int(latest_post_id.first()[0])
+    newest_likes = int(latest_post_likes.first()[0])
 
-    message_details = {"user": newest_user, "message": msg, "postdate": newest_postdate}
+    message_details = {"user": newest_user, "message": msg, "postdate": newest_postdate, "postid": newest_postid, "likes": newest_likes}
     send(message_details, broadcast=True)
 
