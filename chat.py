@@ -35,7 +35,6 @@ def chatfunction():
 @socketio.on("connect")
 def test_connect():
     """ stuff here eventually """
-    print('test')
 
 
 @socketio.on("load_messages")
@@ -98,8 +97,6 @@ def add_like(postinfo):
         likinguser = '{postinfo.get("username")}'
     """).fetchone()
     
-    print(postinfo.get("username"))
-    print(already_liked)
     if already_liked == None:
         # add like into likememory and increase value in userposts
         db.execute(f"""
