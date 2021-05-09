@@ -417,6 +417,10 @@ body > main .message-wrapper ul li h3 {
     margin-right: 15px;
 }
 
+body > main h5 {
+    cursor: pointer;
+}
+
 body > main .message-wrapper ul li div:not(.settings-list) {
     display: flex;
     justify-content: space-between;

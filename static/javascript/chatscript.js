@@ -87,6 +87,13 @@ $(document).ready(function () {
                 socket.emit("add_like", post_info)
             });
 
+            // emoji like event listener
+            $("li:last h5").click(function() {
+                $(this).text("")
+                post_info = {"postid": message_log[x].postid}
+                socket.emit("add_like", post_info)
+            });
+
             // add postid attribute
             $("li:last").attr("postid", message_log[x].postid)
         }
@@ -185,6 +192,20 @@ $(document).ready(function () {
             message_info = {"postid": message_details.postid}
             socket.emit("delete_message", message_info)
             $(this).parent().parent().parent().parent().remove()
+        });
+
+        // like button event listener
+        $("li:last .like-button").click(function() {
+            $(this).parent().parent().parent().parent().children("h5").text("")
+            post_info = {"postid": message_details.postid}
+            socket.emit("add_like", post_info)
+        });
+
+        // emoji like event listener 
+        $("li:last h5").click(function() {
+            $(this).text("")
+            post_info = {"postid": message_details.postid}
+            socket.emit("add_like", post_info)
         });
     });
 
