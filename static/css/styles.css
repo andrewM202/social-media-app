@@ -1,28 +1,3 @@
-/*
-DESKTOP
-
-HEIGHTS
-    header (30vh)
-    header .black-bar (5vh)
-    header nav (10vh)
-    header nav a (10vh)
-    .login-banner (20vh)
-    main (60vh)
-    main .registration (60vh)
-    main .login (60vh)
-    .wrap (60vh)
-    .register-info (18vh)
-    form (70% of parent = 60vh)
-    form input (10% of parent = 6vh)
-    footer (40vh)
-    footer .light-blue-panel (10vh)
-    footer .contact-information (30vh)
-
-WIDTHS
-    .
-    .
-*/
-
 *, *:before, *:after {
     margin: 0;
     padding: 0;

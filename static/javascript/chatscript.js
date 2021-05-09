@@ -136,6 +136,12 @@ $(document).ready(function () {
     // have data to send, so paramter in callback function
     socket.on("message", function (message_details) {
         // append whatever the message is to list of messages
+
+        let findmessage = $("#messages").find(`[postid=${message_details.postid}]`)
+        console.log(findmessage)
+        if(findmessage.length > 0) {
+            return
+        }
     
         // add the message to the HTML
         if(message_details.user == username) {
@@ -207,6 +213,25 @@ $(document).ready(function () {
             post_info = {"postid": message_details.postid, "username": String(username)}
             socket.emit("add_like", post_info)
         });
+
+        // call to remove duplicate join messages
+        removeDuplicate(message_details.postid)
+
+        function removeDuplicate(postiden) {
+            let count = 0
+            for(let i = 0; i < 2; i++) {
+                let postid = Number(postiden)
+                let message = $("#messages").find(`[postid=${postid}]`)
+                if(message.length > 0) {
+                    count++;
+                }
+            }
+            console.log(count)
+            if(count > 1) {
+                let postid = Number(postiden)
+                $("#messages").find(`[postid=${postid}]`).first().remove()
+            }
+        }
     });
 
 });

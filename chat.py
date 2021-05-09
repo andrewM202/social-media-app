@@ -35,6 +35,7 @@ def chatfunction():
 @socketio.on("connect")
 def test_connect():
     """ stuff here eventually """
+    print('test')
 
 
 @socketio.on("load_messages")
