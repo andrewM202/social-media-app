@@ -471,6 +471,19 @@ body > main .send-wrapper button {
 
 /* Above is chatpage CSS */
 
+/* Below is google and facebook button CSS */
+
+.buttons {
+  display: flex;
+  margin-top: 25px;
+}
+
+div .g-signin2 {
+  margin-left: 30px;
+}
+
+/* Above is google and facebook button CSS */
+
 /* Below is mobile design for home page */
 
 @media only screen and (max-width: 700px) {
@@ -591,4 +604,3 @@ body > main .send-wrapper button {
         display: none;
     }
 }
-
