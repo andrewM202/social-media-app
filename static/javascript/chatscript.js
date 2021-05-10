@@ -21,7 +21,6 @@ $(document).ready(function () {
     });
 
     socket.on("add like", function(likes_info) {
-        console.log(likes_info.postid)
         $("#messages").find(`[postid=${likes_info.postid}]`).children("h5").html(`${likes_info.likes} &#x1F44D;`)
     });
 
