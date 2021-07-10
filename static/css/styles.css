@@ -474,12 +474,14 @@ body > main .send-wrapper button {
 /* Below is google and facebook button CSS */
 
 .buttons {
-  display: flex;
-  margin-top: 25px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin-top: 25px;
 }
 
 div .g-signin2 {
-  margin-left: 30px;
+    margin-left: 30px;
 }
 
 /* Above is google and facebook button CSS */

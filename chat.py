@@ -55,7 +55,7 @@ def load_messages():
     """).fetchall()
 
     last_postids = db.execute(f"""
-        SELECT postid
+socketio.on("load_messages")        SELECT postid
         FROM userposts
         ORDER BY postid DESC
         LIMIT 250
